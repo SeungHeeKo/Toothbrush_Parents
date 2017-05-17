@@ -261,7 +261,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             ShowDialog(R.drawable.error_exist_mailaddress);
             // 메일 주소 혹은 비밀번호를 제대로 입력하지 않았을 경우
         else if (result.equals(getString(R.string.error_empty_mailAddress_password)))
-            ShowDialog(R.drawable.error_login_empty);
+            ShowDialog(R.drawable.error_input_all);
             // 비밀번호 입력란, 비밀번호 확인란이 일치하지 않을 경우
         else if (!isPasswordCorrect)
             ShowDialog(R.drawable.error_password_check_incorrect);
@@ -410,7 +410,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         if(inputAuthenticationNumber.equals(authenticationNumber))
             return retval = true;
         else
-            ShowDialog(R.drawable.error_none_mailaddress);
+            ShowDialog(R.drawable.error_authentication);
 
         return retval;
     }
