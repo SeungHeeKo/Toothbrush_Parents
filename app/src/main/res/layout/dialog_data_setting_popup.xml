@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="2560"
+        sl:scale_base_width="1650">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/popup_data_background"
+            android:orientation="vertical"
+            sl:scale_height="2320"
+            sl:scale_width="1330">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                sl:scale_base_height="2320"
+                sl:scale_base_width="1330">
+
+                <!--제한 시간-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    sl:scale_height="300"
+                    sl:scale_top="480"
+                    sl:scale_width="1330">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="300"
+                        sl:scale_base_width="1330">
+
+                        <TextView
+                            android:id="@+id/data_limit_time_setting_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/text_limit_time"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="150"
+                            sl:scale_textsize="65"
+                            sl:scale_width="500" />
+
+                        <Button
+                            android:id="@+id/data_limit_time_left_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_left_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="300"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+
+                        <EditText
+                            android:id="@+id/data_limit_time_editText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:text="20"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="200"
+                            sl:scale_left="520"
+                            sl:scale_textsize="70"
+                            sl:scale_top="80"
+                            sl:scale_width="200" />
+
+                        <TextView
+                            android:id="@+id/data_limit_time_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:text="분"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="200"
+                            sl:scale_left="670"
+                            sl:scale_textsize="70"
+                            sl:scale_top="76"
+                            sl:scale_width="200" />
+
+                        <Button
+                            android:id="@+id/data_limit_time_right_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_right_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="900"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+                <!--아침-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    sl:scale_height="300"
+                    sl:scale_top="950"
+                    sl:scale_width="1330">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="300"
+                        sl:scale_base_width="1330">
+
+                        <TextView
+                            android:id="@+id/data_morning_setting_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/text_morning"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="150"
+                            sl:scale_textsize="65"
+                            sl:scale_width="500" />
+
+                        <Button
+                            android:id="@+id/data_morning_left_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_left_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="300"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+
+
+                        <Button
+                            android:id="@+id/data_morning_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:text="오전 9:00"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="200"
+                            sl:scale_textsize="65"
+                            sl:scale_top="80"
+                            sl:scale_width="300" />
+
+                        <Button
+                            android:id="@+id/data_morning_right_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_right_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="900"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+                <!--점심-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    sl:scale_height="300"
+                    sl:scale_top="1450"
+                    sl:scale_width="1330">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="300"
+                        sl:scale_base_width="1330">
+
+                        <TextView
+                            android:id="@+id/data_afternoon_setting_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/text_afternoon"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="150"
+                            sl:scale_textsize="65"
+                            sl:scale_width="500" />
+
+                        <Button
+                            android:id="@+id/data_afternoon_left_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_left_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="300"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+
+
+                        <Button
+                            android:id="@+id/data_afternoon_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:text="오후 12:30"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="200"
+                            sl:scale_textsize="65"
+                            sl:scale_top="80"
+                            sl:scale_width="400" />
+
+                        <Button
+                            android:id="@+id/data_afternoon_right_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_right_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="900"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+                <!--저녁-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    sl:scale_height="300"
+                    sl:scale_top="1900"
+                    sl:scale_width="1330">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="300"
+                        sl:scale_base_width="1330">
+
+                        <TextView
+                            android:id="@+id/data_evening_setting_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/text_evening"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="150"
+                            sl:scale_textsize="65"
+                            sl:scale_width="500" />
+
+                        <Button
+                            android:id="@+id/data_evening_left_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_left_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="300"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+
+
+                        <Button
+                            android:id="@+id/data_evening_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:text="오후 6:00"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_height="200"
+                            sl:scale_textsize="65"
+                            sl:scale_top="80"
+                            sl:scale_width="400" />
+
+
+                        <Button
+                            android:id="@+id/data_evening_right_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_reward_right_arrow"
+                            sl:scale_height="135"
+                            sl:scale_left="900"
+                            sl:scale_top="110"
+                            sl:scale_width="117" />
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+
+                <!--닫기 버튼-->
+                <Button
+                    android:id="@+id/data_setting_ok_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/popup_data_close"
+                    sl:scale_left="1150"
+                    sl:scale_top="220" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        </RelativeLayout>
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

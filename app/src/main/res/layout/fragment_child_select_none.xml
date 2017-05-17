@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+<com.ssomai.android.scalablelayout.ScalableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    sl:scale_base_height="2176"
+    sl:scale_base_width="1800">
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:srcCompat="@drawable/childselect_none_message1"
+        android:id="@+id/childselect_none_message1_imageView"
+        sl:scale_width="1400"
+        sl:scale_height="708"
+        sl:scale_top="200"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bluetooth_button"
+        android:background="@drawable/childselect_bluetooth"
+        sl:scale_width="406"
+        sl:scale_height="406"
+        sl:scale_top="1300"
+        sl:scale_left="1066" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wifi_button"
+        android:background="@drawable/childselect_wifi"
+        sl:scale_width="406"
+        sl:scale_height="406"
+        sl:scale_top="1300"
+        sl:scale_left="330"/>
+
+
+</com.ssomai.android.scalablelayout.ScalableLayout>
+</LinearLayout>

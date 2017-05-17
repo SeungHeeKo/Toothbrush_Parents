@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="2560"
+        sl:scale_base_width="1650">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            sl:srcCompat="@drawable/popup_reward_reset_background1"
+            android:id="@+id/reward_reset_imageView"
+            sl:scale_top="700"
+            sl:scale_width="1330"
+            sl:scale_height="959"
+            />
+
+        <TextView
+            android:text="@string/alert_reward_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reward_reset_textView"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            sl:scale_textsize="65"
+            sl:scale_top="1130"
+            sl:scale_width="950"
+            sl:scale_height="182"/>
+
+        <Button
+            android:text="@string/button_ok"
+            android:background="@drawable/popup_reward_button_ok_cancel_background1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reward_reset_ok_button"
+            android:textAlignment="center"
+            sl:scale_textsize="65"
+            sl:scale_top="1400"
+            sl:scale_left="300"
+            sl:scale_width="486"
+            sl:scale_height="182" />
+
+        <Button
+            android:text="@string/button_cancel"
+            android:background="@drawable/popup_reward_button_ok_cancel_background1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reward_reset_cancel_button"
+            android:textAlignment="center"
+            sl:scale_textsize="65"
+            sl:scale_top="1400"
+            sl:scale_left="880"
+            sl:scale_width="486"
+            sl:scale_height="182" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Toothbrush_Parents</string>
+
+    <string name="tekton_mail">sh.ko@tektonspace.com</string>
+    <string name="input_user_id">아이디를 입력해주세요.</string>
+    <string name="input_mailAddress">메일 주소를 입력해주세요.</string>
+    <string name="input_password">비밀 번호를 입력해주세요.</string>
+    <string name="input_name">이름을 입력해주세요.</string>
+    <string name="input_mail_authentication_number">인증번호를 입력해주세요</string>
+
+    <string name="user_id">아이디</string>
+    <string name="mailAddress">메일 주소</string>
+    <string name="password">비밀 번호 입력</string>
+    <string name="password_check">비밀 번호 확인</string>
+    <string name="password_check_correct">비밀번호가 일치합니다.</string>
+    <string name="password_check_incorrect">비밀번호가 일치하지 않습니다.</string>
+    <string name="create_account_text">회원가입</string>
+
+    <string name="password_reset_title">비밀번호 재설정</string>
+    <string name="password_reset_id">현재 등록된 아이디</string>
+    <string name="password_reset_mailAddress">메일로 인증번호 전송</string>
+    <string name="password_reset_password">변경할 비밀번호 입력</string>
+    <string name="password_reset_password_check">변경할 비밀번호 확인</string>
+    <string name="password_reset_button">비밀번호 변경</string>
+    <string name="password_reset_authentication">인증번호를 전송했습니다.</string>
+
+    <string name="error_empty_mailAddress_password">메일 주소와 비밀번호를 입력해주세요.</string>
+    <string name="error_none_mailAddress">계정이 존재하지 않습니다.</string>
+    <string name="error_exist_mailAddress">이미 같은 계정이 존재합니다.</string>
+
+    <string name="error_fail_to_access_DB">계정 정보를 가져오는데 실패했습니다.</string>
+
+    <string name="alert_first_page_of_instruction">첫 번째 페이지입니다.</string>
+    <string name="alert_last_page_of_instruction">마지막 페이지입니다.</string>
+    <string name="alert_data_popup_max_limit_time">60분 이내로 설정하여 주십시오.</string>
+
+
+    <string name="login_button">로그인</string>
+    <string name="create_account_button">계정 생성</string>
+
+    <string name="button_select">관리할 아이 선택</string>
+    <string name="button_introduction">조작 방법</string>
+    <string name="button_authentication_before">전송하기</string>
+    <string name="button_authentication_after">인증하기</string>
+    <string name="button_teach_toothbrushing">올바른 양치질 습관</string>
+    <string name="button_child_toothbrush_data">양치습관\n확인하기</string>
+    <string name="button_child_reward">보상 알림\n및 설정</string>
+    <string name="button_child_edit">아이 정보 편집</string>
+    <string name="button_ok">확인</string>
+    <string name="button_cancel">취소</string>
+
+    <string name="alert_reward_reset">목표가 달성되지 않았습니다."\n"누적횟수를 초기화 하시겠습니까?</string>
+    <string name="confirm_reward_reset">누적횟수를 초기화 하시겠습니까?</string>
+    <string name="alert_none_childInfo">생성된 아이의 정보가 없습니다."\n"하단의 아이 정보 생성방법을 참고해주세요.</string>
+
+
+    <string name="none_childName">\???</string>
+    <string name="none_nickName">닉네임</string>
+
+    <string name="instruction">조작 방법 알아보기</string>
+    <string name="mom">mom</string>
+    <string name="kid">kid</string>
+    <string name="connect">connect</string>
+    <string name="today">TODAY</string>
+
+    <string name="title_child_edit">아이 편집</string>
+    <string name="title_home">HOME</string>
+    <string name="title_child_detail">아이 정보</string>
+    <string name="title_toothbrush_data">양치 습관 확인</string>
+    <string name="title_child_reward">보상 설정</string>
+    <string name="title_instruction_select">조작 방법</string>
+    <string name="title_instruction_mom">Mom 조작방법</string>
+    <string name="title_instruction_mom_content">아이 정보 설정</string>
+    <string name="title_instruction_kid">Kid 조작방법</string>
+    <string name="title_instruction_kid_content">캐릭터 생성</string>
+    <string name="title_instruction_connect">연결방법</string>
+    <string name="title_instruction_connect_content_bluetooth">블루투스 모드 연결</string>
+    <string name="title_instruction_connect_content_wifi">Wifi 모드 연결</string>
+    <string name="title_instruction_toothbrush">올바른 양치질</string>
+    <string name="title_instruction_toothbrush_content">폰즈법?</string>
+    <string name="title_instruction_wifi">와이파이 모드로 설정하기</string>
+    <string name="title_instruction_bluetooth">블루투스 모드로 설정하기</string>
+    <string name="error_bluetooth_unable">블루투스를 지원하지 않는 디바이스입니다.</string>
+
+    <string name="instruct_mom_1">1</string>
+    <string name="instruct_mom_2">2</string>
+    <string name="instruct_mom_3">3</string>
+
+    <string name="instruct_toothbrush_1">폰즈법이란 어린이(3~7세)가 쉽게 양치질을 할 수 있는 방법입니다."\n""\n"
+3~7세의 어린이는 입이 작고, 손놀림이 정교하지 못하기 때문에 칫솔질도 서투릅니다."\n""\n"
+따라서 흔히 아는 회전법이 아닌 폰즈법을 통한 양치질이 어린이에게 더 적합합니다."\n""\n"
+폰즈법을 통 한 양치질은 칫솔질에 대 한 흥미를 일으키고, 누구나 쉽게 따라 할 수 있다는 것이 이 칫솔질의 장점입니다.
+</string>
+<string name="instruct_toothbrush_2">치아의 바깥부분은 칫솔을 원형으로 돌려가며 닦아주도록 합니다."\n""\n"
+    이를 다물고 있는 상태에서 치아에 직각으로 칫솔을 위치하고 앞니에서 어금니 왼쪽으로, 오른쪽으로 크게 원을 그리면서 치아와 잇몸을 닦아줍니다.</string>
+<string name="instruct_toothbrush_3">치아의 바깥 부분을 닦은 뒤에는 치아의 안쪽 부분과 씹는 부분을 닦아 주도록 합니다."\n""\n"
+    칫솔을 좌, 우로 왔다 갔다 하는 방법을 통해 치아를 닦아주도록 합니다.</string>
+    <string name="instruct_toothbrush_4">치아의 앞니쪽 부분은 위, 아래 모두 칫솔을 세로로 잡은 상태에서 안에서 밖으로 쓸어내듯이 닦아주도록 합니다."\n""\n"
+        아이가 영구치가 나오는 시점부터는 폰즈법이 아닌 회전법을 사용하여 양치를 하도록 합니다.</string>
+    <string name="string_monday">월</string>
+    <string name="string_tuesday">화</string>
+    <string name="string_wednesday">수</string>
+    <string name="string_thursday">목</string>
+    <string name="string_friday">금</string>
+    <string name="string_saturday">토</string>
+    <string name="string_sunday">일</string>
+
+    <string name="text_limit_time">제한 시간</string>
+    <string name="text_morning">아침</string>
+    <string name="text_afternoon">점심</string>
+    <string name="text_evening">저녁</string>
+
+    <string name="string_example_reward_content">초콜릿</string>
+    <string name="string_example_reward_current_num">\?</string>
+    <string name="string_example_reward_total_num">10</string>
+
+    <string name="db_insert_result_ok">1 record added</string>
+    <string name="db_update_result_ok">1 record updated</string>
+
+    <string name="title_copyright">Copyright(c)2017.All rights reserved by tektonspace.</string>
+
+    <string name="connectmode_wifi">WIFI</string>
+    <string name="connectmode_bluetooth">Bluetooth</string>
+
+    <!--ChildSelectActivity-->
+    <string name="send">Send</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Chat.</string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_connected_to">connected to </string>
+    <string name="title_not_connected">not connected</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+</resources>

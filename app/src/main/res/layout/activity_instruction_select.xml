@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/instructionselect_background">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="2700"
+        sl:scale_base_width="1800">
+
+        <!--button-->
+        <RelativeLayout
+            android:id="@+id/childdetail_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_height="888"
+            sl:scale_top="1900"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="888"
+                sl:scale_base_width="1800">
+
+                <Button
+                    android:id="@+id/instructionSelect_connect_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/instructionselect_button_connect"
+                    sl:scale_height="290"
+                    sl:scale_top="540"
+                    sl:scale_width="1800" />
+
+                <Button
+                    android:id="@+id/instructionSelect_kid_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/instructionselect_button_kid"
+                    sl:scale_height="290"
+                    sl:scale_top="270"
+                    sl:scale_width="1800" />
+
+                <Button
+                    android:id="@+id/instructionSelect_mom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/instructionselect_button_mom"
+                    sl:scale_height="290"
+                    sl:scale_width="1800" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+        <!--button text-->
+        <RelativeLayout
+            android:id="@+id/instructionSelect_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_height="888"
+            sl:scale_top="1900"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="888"
+                sl:scale_base_width="1800">
+
+                <TextView
+                    android:id="@+id/instructionSelect_connect_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/connect"
+                    android:textColor="#FFFFFF"
+                    sl:scale_height="200"
+                    sl:scale_left="200"
+                    sl:scale_textsize="65"
+                    sl:scale_top="650"
+                    sl:scale_width="500" />
+
+                <TextView
+                    android:id="@+id/instructionSelect_kid_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/kid"
+                    android:textColor="#FFFFFF"
+                    sl:scale_height="200"
+                    sl:scale_left="200"
+                    sl:scale_textsize="65"
+                    sl:scale_top="370"
+                    sl:scale_width="500" />
+
+                <TextView
+                    android:id="@+id/instructionSelect_mom_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/mom"
+                    android:textColor="#FFFFFF"
+                    sl:scale_height="200"
+                    sl:scale_left="200"
+                    sl:scale_textsize="65"
+                    sl:scale_top="100"
+                    sl:scale_width="500" />
+
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+        <!--button icon-->
+        <RelativeLayout
+            android:id="@+id/instructionSelect_icon_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_height="888"
+            sl:scale_top="1900"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="888"
+                sl:scale_base_width="1800">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/instructionselect_button_icon_connect"
+                    android:id="@+id/instructionselect_icon_connect_imageView"
+                    sl:scale_top="600"
+                    sl:scale_left="650"
+                    sl:scale_height="150"
+                    sl:scale_width="150" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/instructionselect_button_icon_kid"
+                    android:id="@+id/instructionselect_icon_kid_imageView"
+                    sl:scale_top="340"
+                    sl:scale_left="650"
+                    sl:scale_height="150"
+                    sl:scale_width="150" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/instructionselect_button_icon_mom"
+                    android:id="@+id/instructionselect_icon_mom_imageView"
+                    sl:scale_top="70"
+                    sl:scale_left="650"
+                    sl:scale_height="150"
+                    sl:scale_width="150" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/instructionselect_background_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_top="400"
+            sl:scale_height="1450"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="1450"
+                sl:scale_base_width="1800">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/instructionselect_character"
+                    android:layout_gravity="center"
+                    android:id="@+id/imageView"
+                    sl:scale_height="1400"
+                    sl:scale_width="1327"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--title-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/instructionselect_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/instructionselect_title"
+            sl:scale_height="412"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="412"
+                sl:scale_base_width="1800">
+
+                <TextView
+                    android:id="@+id/instructionSelect_title_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:paddingBottom="35dp"
+                    android:text="@string/title_instruction_select"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    sl:scale_textsize="75"
+                    sl:scale_height="500"
+                    sl:scale_width="800" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+        <!--뒤로가기, 홈버튼-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/titlebar_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            sl:scale_height="350"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="350"
+                sl:scale_base_width="1800">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_back"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_back"
+                    sl:scale_left="150"
+                    sl:scale_width="150"
+                    sl:scale_height="150"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_home"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_home"
+                    sl:scale_left="350"
+                    sl:scale_width="150"
+                    sl:scale_height="150"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</FrameLayout>

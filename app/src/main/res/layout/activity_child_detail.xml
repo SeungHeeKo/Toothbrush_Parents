@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/orange_background"
+    android:descendantFocusability="blocksDescendants">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="2700"
+        sl:scale_base_width="1800">
+
+        <!--button-->
+        <RelativeLayout
+            android:id="@+id/childdetail_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_top="1900"
+            sl:scale_height="888"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="888"
+                sl:scale_base_width="1800">
+
+                <Button
+                    android:id="@+id/childDetail_edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/childdetail_edit_background"
+                    sl:scale_textsize="65"
+                    sl:scale_height="290"
+                    sl:scale_top="540"
+                    sl:scale_width="1800" />
+
+                <Button
+                    android:id="@+id/childDetail_reward_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/childdetail_reward_background"
+                    sl:scale_textsize="65"
+                    sl:scale_height="290"
+                    sl:scale_top="270"
+                    sl:scale_width="1800" />
+
+                <Button
+                    android:id="@+id/childDetail_toothbrushData_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/childdetail_toothbrushdata_background1"
+                    sl:scale_textsize="65"
+                    sl:scale_height="290"
+                    sl:scale_width="1800" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--child-->
+    <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/childdetail_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/childdetail_background"
+        sl:scale_top="600"
+        sl:scale_height="1138"
+        sl:scale_width="1400">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="1138"
+        sl:scale_base_width="1400">
+<!--childPhoto-->
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/childdetail_childphoto_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/childdetail_photoframe1"
+                    sl:scale_height="434"
+                    sl:scale_width="434"
+                    sl:scale_top="150">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="434"
+                        sl:scale_base_width="434">
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/childDetail_childPhoto_imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            sl:scale_top="5"
+                            sl:scale_left="20"
+                            sl:scale_height="434"
+                            sl:scale_width="434"
+                            sl:srcCompat="@drawable/childselect_photo_frame_none"
+                            app:civ_border="false"
+                            app:civ_shadow="true"
+                            app:civ_shadow_color="@android:color/transparent"
+                            app:civ_shadow_radius="2"/>
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+<!--childName-->
+        <TextView
+            android:background="@drawable/childdetail_name1"
+            android:id="@+id/childDetail_childName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:letterSpacing="0.6"
+            android:lineSpacingExtra="8dip"
+            android:text="홍길동"
+            android:textColor="#1c6c86"
+            android:textAlignment="center"
+            sl:scale_height="189"
+            sl:scale_textsize="80"
+            sl:scale_top="620"
+            sl:scale_width="532" />
+
+        <!--nickname-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/childdetail_character_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            sl:scale_top="860"
+            sl:scale_height="250"
+            sl:scale_width="1400">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                sl:scale_base_height="250"
+                sl:scale_base_width="1400">
+
+                <TextView
+                    android:id="@+id/childdetail_childNickname_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="닉네임"
+                    android:textColor="#FFFFFF"
+                    android:letterSpacing="0.6"
+                    android:lineSpacingExtra="8dip"
+                    sl:scale_height="180"
+                    sl:scale_left="550"
+                    sl:scale_textsize="100"
+                    sl:scale_width="800" />
+
+                <!--character image-->
+                <!--android:background="@drawable/childdetail_character_frame"-->
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/childdetail_characterframe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:color/transparent"
+                    sl:scale_left="330"
+                    sl:scale_height="164"
+                    sl:scale_width="164">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        sl:scale_base_height="164"
+                        sl:scale_base_width="164">
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/childdetail_character_frame_imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            sl:srcCompat="@drawable/childselect_character_none"
+                            sl:scale_height="164"
+                            sl:scale_width="164"
+                            app:civ_border="false"
+                            app:civ_shadow="true"
+                            app:civ_shadow_color="@android:color/transparent"
+                            app:civ_shadow_radius="2"/>
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+</com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--icon-->
+        <RelativeLayout
+            android:id="@+id/childdetail_icon_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_top="1900"
+            sl:scale_height="888"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="888"
+                sl:scale_base_width="1800">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/childdetail_icon_data"
+                    android:id="@+id/childDetail_icon_data_imageView"
+                    sl:scale_left="540"
+                    sl:scale_top="80"
+                    sl:scale_height="140"
+                    sl:scale_width="140"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/childdetail_icon_reward"
+                    android:id="@+id/childDetail_icon_reward_imageView"
+                    sl:scale_left="540"
+                    sl:scale_top="355"
+                    sl:scale_height="140"
+                    sl:scale_width="140"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/childdetail_icon_edit"
+                    android:id="@+id/childDetail_icon_edit_imageView"
+                    sl:scale_left="540"
+                    sl:scale_top="610"
+                    sl:scale_height="140"
+                    sl:scale_width="140" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+        <!--text-->
+
+        <RelativeLayout
+            android:id="@+id/childdetail_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sl:scale_top="1900"
+            sl:scale_height="888"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="888"
+                sl:scale_base_width="1800">
+
+
+                <TextView
+                    android:text="@string/button_child_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childDetail_text_edit_textView"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    sl:scale_textsize="75"
+                    sl:scale_left="250"
+                    sl:scale_top="640"
+                    sl:scale_height="200"
+                    sl:scale_width="800" />
+
+                <TextView
+                    android:text="@string/button_child_reward"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childDetail_text_reward_textView"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    sl:scale_textsize="75"
+                    sl:scale_left="250"
+                    sl:scale_top="370"
+                    sl:scale_height="200"
+                    sl:scale_width="800"/>
+
+                <TextView
+                    android:text="@string/button_child_toothbrush_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childDetail_text_data_textView"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    sl:scale_textsize="75"
+                    sl:scale_left="250"
+                    sl:scale_top="100"
+                    sl:scale_height="200"
+                    sl:scale_width="800" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--title-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/childDetail_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/childdetail_title_background"
+            sl:scale_height="412"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="412"
+                sl:scale_base_width="1800"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:id="@+id/childDetail_title_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/title_child_detail"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:paddingBottom="35dp"
+                    sl:scale_textsize="75"
+                    sl:scale_height="500"
+                    sl:scale_width="500" />
+
+                <!--<Button-->
+                    <!--android:id="@+id/childDetail_setting_button"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/childdetail_setting_button1"-->
+                    <!--sl:scale_height="196"-->
+                    <!--sl:scale_left="1400"-->
+                    <!--sl:scale_top="80"-->
+                    <!--sl:scale_width="196" />-->
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+        <!--뒤로가기, 홈버튼, 조작방법설명, 폰즈법(올바른양치질)설명-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/titlebar_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            sl:scale_height="262"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="262"
+                sl:scale_base_width="1800"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_back1"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_back"
+                    android:alpha=".7"
+                    sl:scale_left="150"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_home1"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_home"
+                    android:alpha=".7"
+                    sl:scale_left="320"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_instruction"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_instruction"
+                    android:alpha=".7"
+                    sl:scale_left="1320"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_teachbrush"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_teachbrush"
+                    android:alpha=".7"
+                    sl:scale_left="1500"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</FrameLayout>

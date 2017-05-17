@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        sl:scale_base_height="150"
+        sl:scale_base_width="1400">
+    <org.androidconnect.listview.horizontal.adapter.HorizontalListView
+        android:id="@+id/child_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="#ddd"
+        sl:scale_height="150"
+        sl:scale_width="150"
+        />
+</com.ssomai.android.scalablelayout.ScalableLayout>
+</LinearLayout>

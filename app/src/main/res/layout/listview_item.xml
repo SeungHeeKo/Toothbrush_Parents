@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/childselect_background_layout"
+    android:orientation="vertical"
+    android:paddingTop="30dp">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        sl:scale_base_height="887"
+        sl:scale_base_width="1600">
+
+    <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/childselect_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/childselect_background"
+        sl:scale_height="887"
+        sl:scale_width="1400">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="887"
+        sl:scale_base_width="1400">
+<!--photo-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/childphoto_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/childselect_photo_frame_none1"
+            android:layout_gravity="center_horizontal"
+            sl:scale_height="372"
+            sl:scale_width="372"
+            sl:scale_top="50">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="372"
+                sl:scale_base_width="372">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/childPhoto_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:scale_top="5"
+                    sl:scale_left="20"
+                    sl:scale_height="338"
+                    sl:scale_width="338"
+                    sl:srcCompat="@drawable/childselect_photo_frame_none1"
+                    app:civ_border="false"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="@android:color/transparent"
+                    app:civ_shadow_radius="2"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--name-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/childselect_name"
+            sl:scale_height="189"
+            sl:scale_top="400"
+            sl:scale_width="532">
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            sl:scale_base_height="189"
+            sl:scale_base_width="532">
+
+            <TextView
+                android:id="@+id/childName_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:textColor="#1c6c86"
+                android:letterSpacing="0.6"
+                android:lineSpacingExtra="8dip"
+                android:text="\???"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"
+                sl:scale_height="200"
+                sl:scale_textsize="80"
+                sl:scale_width="500" />
+
+
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        </RelativeLayout>
+        <!--nickname-->
+            <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/childselect_character_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                sl:scale_top="615"
+                sl:scale_height="250"
+                sl:scale_width="1400">
+
+                <com.ssomai.android.scalablelayout.ScalableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    sl:scale_base_height="250"
+                    sl:scale_base_width="1400">
+
+                    <TextView
+                        android:id="@+id/childNickname_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:text="Nickname"
+                        android:textColor="#FFFFFF"
+                        android:letterSpacing="0.6"
+                        android:lineSpacingExtra="8dip"
+                        sl:scale_height="180"
+                        sl:scale_left="550"
+                        sl:scale_textsize="100"
+                        sl:scale_width="800" />
+
+                    <!--character image-->
+            <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/childselect_characterframe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                sl:scale_left="300"
+                sl:scale_height="164"
+                sl:scale_width="164">
+
+                <com.ssomai.android.scalablelayout.ScalableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    sl:scale_base_height="164"
+                    sl:scale_base_width="164">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/childselect_character_frame_imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        sl:srcCompat="@drawable/childselect_character_none"
+                        sl:scale_height="164"
+                        sl:scale_width="164"
+                        app:civ_border="false"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="@android:color/transparent"
+                        app:civ_shadow_radius="2"/>
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                    </RelativeLayout>
+                </com.ssomai.android.scalablelayout.ScalableLayout>
+            </RelativeLayout>
+</com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</FrameLayout>
+

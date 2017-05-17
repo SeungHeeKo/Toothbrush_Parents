@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.tektonspace.toothbrush_parents.activities.MainActivity">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        sl:scale_base_height="2560"
+        sl:scale_base_width="1440">
+
+        <TextView
+            android:text="@string/title_copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/main_copyright_textView"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            sl:scale_textsize="50"
+            sl:scale_height="100"
+            sl:scale_top="2400"
+            sl:scale_width="1600" />
+
+        <ImageView
+            android:id="@+id/logo_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            sl:scale_height="800"
+            sl:scale_top="700"
+            sl:scale_width="800"
+            sl:srcCompat="@mipmap/intro_logo" />
+
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/progressbar_custom"
+            android:layout_height="10dp"
+            android:layout_width="250dp"
+            android:id="@+id/progressBar"
+            android:layout_centerInParent="true"
+            android:max="100"
+            android:layout_gravity="center_horizontal"
+            sl:scale_width="1200"
+            sl:scale_height="50"
+            sl:scale_top="1800"/>
+
+
+        <EditText
+            android:text="i"
+            android:id="@+id/user_id_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_text_box"
+            android:ems="10"
+            android:hint="@string/input_mailAddress"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            sl:scale_height="180"
+            sl:scale_textsize="70"
+            sl:scale_top="1400"
+            sl:scale_width="1200" />
+
+
+        <EditText
+            android:text="p"
+            android:id="@+id/password_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_text_box"
+            android:ems="10"
+            android:hint="@string/input_password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            sl:scale_height="180"
+            sl:scale_textsize="70"
+            sl:scale_top="1700"
+            sl:scale_width="1200" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:background="@drawable/login_button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            sl:scale_height="180"
+            sl:scale_textsize="70"
+            sl:scale_left="150"
+            sl:scale_top="2000"
+            sl:scale_width="450"  />
+
+        <Button
+            android:id="@+id/moveToCreateAccount_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_createaccount"
+            sl:scale_height="180"
+            sl:scale_textsize="70"
+            sl:scale_left="850"
+            sl:scale_top="2000"
+            sl:scale_width="450" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</LinearLayout>

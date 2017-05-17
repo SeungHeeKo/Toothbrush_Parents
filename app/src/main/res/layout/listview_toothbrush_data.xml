@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/childselect_background_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        sl:scale_base_height="700"
+        sl:scale_base_width="1700">
+
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toothbrush_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/data_box_content1"
+            sl:scale_height="612"
+            sl:scale_width="1500">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="612"
+                sl:scale_base_width="1500">
+
+                <ImageView
+                    android:id="@+id/toothbrush_data_morning_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/data_morning_off1"
+                    sl:scale_left="110"
+                    sl:scale_top="250"
+                    sl:scale_height="176"
+                    sl:scale_width="272" />
+
+                <ImageView
+                    android:id="@+id/toothbrush_data_afternoon_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/data_afternoon_off1"
+                    sl:scale_left="630"
+                    sl:scale_top="240"
+                    sl:scale_height="248"
+                    sl:scale_width="248"  />
+
+                <ImageView
+                    android:id="@+id/toothbrush_data_evening_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/data_evening_off1"
+                    sl:scale_left="1130"
+                    sl:scale_top="260"
+                    sl:scale_height="204"
+                    sl:scale_width="192"  />
+
+                <TextView
+                    android:text="@string/string_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toothbrush_data_day_textView"
+                    android:paddingTop="2dp"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    sl:scale_textsize="70"
+                    sl:scale_left="80"
+                    sl:scale_height="150"
+                    sl:scale_width="300" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</FrameLayout>

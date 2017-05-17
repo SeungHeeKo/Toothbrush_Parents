@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_popup_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.tektonspace.toothbrush_parents.utils.PopupDialog">
+<com.ssomai.android.scalablelayout.ScalableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    sl:scale_base_height="2560"
+    sl:scale_base_width="1650">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/error_login_empty"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/popup_error_message_imageView"
+        sl:scale_top="800"
+        sl:scale_height="712"
+        sl:scale_width="1536"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/popup_ok"
+        android:id="@+id/popup_ok_button"
+        sl:scale_top="1511"
+        sl:scale_height="172"
+        sl:scale_width="1536" />
+</com.ssomai.android.scalablelayout.ScalableLayout>
+</LinearLayout>

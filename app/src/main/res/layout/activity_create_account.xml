@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_create_account"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tektonspace.toothbrush_parents.activities.CreateAccountActivity">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="2700"
+        sl:scale_base_width="1800">
+
+        <TextView
+            android:text="회원가입"
+            android:id="@+id/createAccount_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="@drawable/createaccount_title_background"
+            android:textColor="#FFFFFF"
+            android:paddingBottom="15dp"
+            sl:scale_textsize="75"
+            sl:scale_height="378"
+            sl:scale_width="1800" />
+
+        <TextView
+            android:id="@+id/createAccount_id_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_id"
+            sl:scale_left="280"
+            sl:scale_textsize="65"
+            sl:scale_top="500"
+            sl:scale_width="900" />
+
+        <EditText
+            android:id="@+id/createAccount_id_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/createaccount_text"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/input_user_id"
+            android:paddingLeft="20dp"
+            sl:scale_textsize="65"
+            sl:scale_height="178"
+            sl:scale_width="1333"
+            sl:scale_top="620" />
+
+        <TextView
+            android:id="@+id/createAccount_mailAddress_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mailAddress"
+            sl:scale_left="280"
+            sl:scale_textsize="65"
+            sl:scale_top="850"
+            sl:scale_width="900" />
+
+        <TextView
+            android:id="@+id/createAccount_password_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            sl:scale_left="250"
+            sl:scale_textsize="65"
+            sl:scale_top="1350"
+            sl:scale_width="1000" />
+
+        <EditText
+            android:id="@+id/createAccount_password_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/createaccount_text"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/input_password"
+            android:paddingLeft="20dp"
+            sl:scale_textsize="65"
+            sl:scale_height="178"
+            sl:scale_width="1333"
+            sl:scale_top="1470"/>
+        <TextView
+            android:id="@+id/createAccount_password_check_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password_check"
+            sl:scale_left="250"
+            sl:scale_textsize="65"
+            sl:scale_top="1700"
+            sl:scale_width="1000" />
+
+        <EditText
+            android:id="@+id/createAccount_password_check_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/createaccount_text"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/input_password"
+            android:paddingLeft="20dp"
+            sl:scale_textsize="65"
+            sl:scale_height="178"
+            sl:scale_width="1333"
+            sl:scale_top="1820"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createAccount_password_correctCheck_textView"
+            sl:scale_left="200"
+            sl:scale_textsize="65"
+            sl:scale_height="174"
+            sl:scale_top="2050"
+            sl:scale_width="1300" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계정생성하기"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/createaccount_createbutton"
+            android:id="@+id/createAccount_button"
+            android:textColor="#FFFFFF"
+            sl:scale_textsize="70"
+            sl:scale_height="202"
+            sl:scale_top="2500"
+            sl:scale_width="1800" />
+
+        <!--뒤로가기, 홈버튼-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/titlebar_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            sl:scale_height="350"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="350"
+                sl:scale_base_width="1800">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_back"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_back"
+                    sl:scale_left="150"
+                    sl:scale_width="150"
+                    sl:scale_height="150"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_home"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_home"
+                    sl:scale_left="350"
+                    sl:scale_width="150"
+                    sl:scale_height="150"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/createAccount_mailAddress_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/createaccount_text"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/input_mailAddress"
+            android:paddingLeft="20dp"
+            sl:scale_textsize="65"
+            sl:scale_height="178"
+            sl:scale_width="1333"
+            sl:scale_top="970" />
+        <EditText
+            android:id="@+id/createAccount_authentication_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/createaccount_text"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/input_mail_authentication_number"
+            android:visibility="invisible"
+            android:paddingLeft="20dp"
+            sl:scale_left="250"
+            sl:scale_textsize="65"
+            sl:scale_height="178"
+            sl:scale_width="888"
+            sl:scale_top="970" />
+        <Button
+            android:id="@+id/createAccount_authentication_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/creataccount_button"
+            android:text="@string/button_authentication_before"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible"
+            sl:scale_left="1160"
+            sl:scale_textsize="60"
+            sl:scale_height="178"
+            sl:scale_width="410"
+            sl:scale_top="970" />
+
+        <TextView
+            android:id="@+id/createAccount_authentication_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password_reset_authentication"
+            android:textColor="@color/colorGreen"
+            android:visibility="invisible"
+            sl:scale_left="280"
+            sl:scale_textsize="65"
+            sl:scale_top="1200"
+            sl:scale_width="900" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</LinearLayout>

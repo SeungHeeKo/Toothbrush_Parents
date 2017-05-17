@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_popup_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:weightSum="10"
+    tools:context="com.tektonspace.toothbrush_parents.utils.PopupDialog">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        sl:scale_base_height="2560"
+        sl:scale_base_width="1650">
+
+        <ImageView
+            android:id="@+id/popup_setting_background_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/setting_popup_baackground"
+            sl:scale_height="1140"
+            sl:scale_top="600"
+            sl:scale_width="1520" />
+
+        <Button
+            android:id="@+id/popup_setting_reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/dialog_setting_reset"
+            sl:scale_height="200"
+            sl:scale_top="1100"
+            sl:scale_width="1064" />
+
+        <Button
+            android:id="@+id/popup_setting_change_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/dialog_setting_change"
+            sl:scale_height="200"
+            sl:scale_top="1400"
+            sl:scale_width="1064" />
+
+        <!--닫기 버튼-->
+        <Button
+            android:id="@+id/popup_setting_close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_close"
+            sl:scale_width="116"
+            sl:scale_height="116"
+            sl:scale_left="1400"
+            sl:scale_top="850" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</LinearLayout>

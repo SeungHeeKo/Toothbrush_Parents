@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/reward_background"
+    android:descendantFocusability="blocksDescendants">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        sl:scale_base_height="2700"
+        sl:scale_base_width="1800">
+
+<!--reward content-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/reward_content_num_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            sl:scale_top="650"
+            sl:scale_height="1800"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                sl:scale_base_height="1800"
+                sl:scale_base_width="1800">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    sl:srcCompat="@drawable/reward_detail_background1"
+                    android:id="@+id/imageView2"
+                    sl:scale_height="1600"
+                    sl:scale_width="1553" />
+
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/reward_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            sl:scale_top="350"
+            sl:scale_height="782"
+            sl:scale_width="760">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="782"
+                sl:scale_base_width="760"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/reward_content_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:text="초콜릿"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:paddingRight="15dp"
+            sl:scale_left="50"
+            sl:scale_top="20"
+            sl:scale_textsize="200"
+            sl:scale_height="400"
+            sl:scale_width="1400" />
+</com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--reward num-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/reward_num_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            sl:scale_top="1220"
+            sl:scale_height="204"
+            sl:scale_width="681">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="204"
+                sl:scale_base_width="681">
+
+
+                <TextView
+            android:id="@+id/reward_divider_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:text=" / "
+            android:textColor="#ffa600"
+            android:textAlignment="center"
+            sl:scale_textsize="100"
+            sl:scale_height="200"
+            sl:scale_width="100" />
+
+                <TextView
+                    android:id="@+id/reward_rewardNum_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="10"
+                    android:textColor="#ffa600"
+                    android:textAlignment="center"
+                    sl:scale_textsize="100"
+                    sl:scale_left="340"
+                    sl:scale_height="200"
+                    sl:scale_width="200" />
+
+                <TextView
+                    android:id="@+id/reward_totalNum_textView"
+                    android:layout_width="43dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="\?"
+                    android:textColor="#ffa600"
+                    android:textAlignment="center"
+                    sl:scale_textsize="100"
+                    sl:scale_left="150"
+                    sl:scale_height="200"
+                    sl:scale_width="200" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+<!--보상 설정 버튼-->
+        <Button
+            android:id="@+id/reward_setting_button"
+            android:background="@drawable/childdetail_toothbrushdata_background1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:text="보상 설정하기"
+            sl:scale_textsize="75"
+            sl:scale_height="296"
+            sl:scale_top="2420"
+            sl:scale_width="1800" />
+<!--title-->
+                <TextView
+                    android:background="@drawable/childdetail_title_background"
+                    android:id="@+id/reward_title_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/title_child_reward"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:paddingBottom="15dp"
+                    sl:scale_textsize="75"
+                    sl:scale_height="412"
+                    sl:scale_width="1800" />
+
+        <!--뒤로가기, 홈버튼, 조작방법설명, 폰즈법(올바른양치질)설명-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/titlebar_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            sl:scale_height="262"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="262"
+                sl:scale_base_width="1800"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_back1"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_back"
+                    android:alpha=".7"
+                    sl:scale_left="150"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_button_home1"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_home"
+                    android:alpha=".7"
+                    sl:scale_left="320"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_instruction"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_instruction"
+                    android:alpha=".7"
+                    sl:scale_left="1320"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_teachbrush"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/titlebar_button_teachbrush"
+                    android:alpha=".7"
+                    sl:scale_left="1500"
+                    sl:scale_width="130"
+                    sl:scale_height="130"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</FrameLayout>
