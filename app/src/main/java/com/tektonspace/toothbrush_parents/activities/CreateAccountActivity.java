@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.Selection;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -31,9 +32,9 @@ import java.util.ArrayList;
  * 계정 생성 화면
  */
 public class CreateAccountActivity extends AppCompatActivity {
-    TextView createAccount_title, id_textView, mailAddress_textView, password_textView, password_check_textView;
+    TextView createAccount_title, id_textView, mailAddress_textView, password_textView, password_check_textView, createAccount_check_textView;
     // 사용자의 아이디, 메일주소, 비밀번호를 입력받는 EditText
-    EditText id_editText, mailAddress_editText, password_editText, password_check_editText;
+    EditText id_editText, mailAddress_editText, password_editText, password_check_editText, createAccount_reset_id_editText;
     // 사용자의 아이디, 메일주소, 비밀번호 저장
     String user_id = null, mailAddress = null, password = null;
 
@@ -47,8 +48,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     TextView createAccount_authentication_textView;
     // 비밀번호 재설정 화면시 인증번호 입력 EditText
     EditText createAccount_authentication_editText;
-    // 비밀번호 재설정 화면시 인증번호 전송 및 인증 버튼
-    Button createAccount_authentication_button;
+    // 비밀번호 재설정 화면시 인증번호 전송 및 인증, 중복확인 버튼
+    Button createAccount_authentication_button, createAccount_check_button;
     // 비밀번호 재설정 화면시 인증번호
     String authenticationNumber = null;
     // 인증번호 일치, 불일치 여부
@@ -70,6 +71,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     // 비밀번호 재설정 화면인지 여부
     boolean isPasswordResetActivity = false;
+    boolean ifIDExist = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,15 +93,17 @@ public class CreateAccountActivity extends AppCompatActivity {
         id_editText = (EditText) findViewById(R.id.createAccount_id_editText);
         mailAddress_editText = (EditText) findViewById(R.id.createAccount_mailAddress_editText);
         password_editText = (EditText) findViewById(R.id.createAccount_password_editText);
+        createAccount_reset_id_editText = (EditText) findViewById(R.id.createAccount_reset_id_editText);
         password_check_editText = (EditText) findViewById(R.id.createAccount_password_check_editText);
         password_correctCheck_textView = (TextView) findViewById(R.id.createAccount_password_correctCheck_textView);
+        createAccount_check_button = (Button) findViewById(R.id.createAccount_check_button);
         accountCreate_button = (Button) findViewById(R.id.createAccount_button);
         titlebar_button_back = (Button) findViewById(R.id.titlebar_button_back);
         titlebar_button_home = (Button) findViewById(R.id.titlebar_button_home);
         createAccount_authentication_textView = (TextView) findViewById(R.id.createAccount_authentication_textView);
         createAccount_authentication_editText = (EditText) findViewById(R.id.createAccount_authentication_editText);
         createAccount_authentication_button = (Button) findViewById(R.id.createAccount_authentication_button);
-
+        createAccount_check_textView = (TextView) findViewById(R.id.createAccount_check_textView);
         // DB 연동 인스턴스 초기화
         dbManager = new DB_Manager();
 
@@ -111,6 +115,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccount_authentication_textView.setVisibility(View.INVISIBLE);
         createAccount_authentication_editText.setVisibility(View.INVISIBLE);
         createAccount_authentication_button.setVisibility(View.INVISIBLE);
+        password_editText.setVisibility(View.VISIBLE);
+        createAccount_check_button.setVisibility(View.VISIBLE);
+        createAccount_reset_id_editText.setVisibility(View.INVISIBLE);
         // MainActivity에서 전달받은 intent가 있는지 확인
         // 사용자가 비밀번호를 5회 이상 틀렸을 경우, intent 수신
         Intent intent = getIntent();
@@ -119,6 +126,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             user_id = intent.getStringExtra(DB_Data.STRING_USER_ID);
             // 사용자의 메일 주소를 editText에 설정
             id_editText.setText(user_id);
+            // 커서 위치 제일 마지막으로 이동
+            Editable editable = id_editText.getText();
+            Selection.setSelection(editable, editable.length());
 
             // 비밀번호 재설정 화면으로 레이아웃 변경
             createAccount_title.setText(getString(R.string.password_reset_title));
@@ -130,8 +140,11 @@ public class CreateAccountActivity extends AppCompatActivity {
             isPasswordResetActivity = true;
 
             mailAddress_editText.setVisibility(View.INVISIBLE);
+            createAccount_check_textView.setVisibility(View.INVISIBLE);
+            createAccount_check_button.setVisibility(View.INVISIBLE);
             createAccount_authentication_editText.setVisibility(View.VISIBLE);
             createAccount_authentication_button.setVisibility(View.VISIBLE);
+            createAccount_reset_id_editText.setVisibility(View.VISIBLE);
         }
 
 
@@ -171,6 +184,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         accountCreate_button.setOnClickListener(onClickListener);
         titlebar_button_back.setOnClickListener(onClickListener);
         titlebar_button_home.setOnClickListener(onClickListener);
+        createAccount_check_button.setOnClickListener(onClickListener);
         if (isPasswordResetActivity)
             createAccount_authentication_button.setOnClickListener(onClickListener);
 
@@ -182,6 +196,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
+                case R.id.createAccount_check_button:
+                    checkID();
+                    break;
                 case R.id.createAccount_button:
                     // DB에 계정 정보 삽입
                     if (!DB_Data.IS_TEST_VERSION) {
@@ -247,6 +264,30 @@ public class CreateAccountActivity extends AppCompatActivity {
 //            accountCreate_button.setEnabled(false);
         }
     }
+    // 아이디 중복 확인
+    private void checkID() {
+        user_id = id_editText.getText().toString();
+        if(TextUtils.isEmpty(user_id))
+            return;
+
+        // 사용자가 입력한 아이디가 DB에 존재하는지 확인
+        ArrayList<ListItem> userData = new ArrayList<ListItem>();
+        userData = verifyUserInfo.GetDataFromTable(DB_Data.TABLE_USER_INFO, user_id);
+
+        // DB에 검색해 반환받은 결과값이 없을 경우, 계정 정보가 없으므로 사용 가능
+        if (userData.size() < 1) {
+            createAccount_check_textView.setText(R.string.id_check_none);
+            createAccount_check_textView.setTextColor(ContextCompat.getColor(this, R.color.colorGreen));
+            if(ifIDExist)
+                ifIDExist = false;
+        }
+        else{
+            createAccount_check_textView.setText(R.string.id_check_exist);
+            createAccount_check_textView.setTextColor(ContextCompat.getColor(this, R.color.colorRed));
+            if(!ifIDExist)
+                ifIDExist = true;
+        }
+    }
 
     // DB UserInfo 테이블에 사용자 정보 삽입
     private void InsertUserInfo() {
@@ -257,7 +298,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         result = verifyUserInfo.VerifyUserInfo(user_id, password);
 
         // 계정이 이미 존재할 경우
-        if (result.equals(DB_Data.DATA_CORRECT))
+        if (result.equals(DB_Data.DATA_CORRECT) || ifIDExist)
             ShowDialog(R.drawable.error_exist_mailaddress);
             // 메일 주소 혹은 비밀번호를 제대로 입력하지 않았을 경우
         else if (result.equals(getString(R.string.error_empty_mailAddress_password)))

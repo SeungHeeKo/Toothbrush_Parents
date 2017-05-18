@@ -14,6 +14,8 @@
     <string name="password_check">비밀 번호 확인</string>
     <string name="password_check_correct">비밀번호가 일치합니다.</string>
     <string name="password_check_incorrect">비밀번호가 일치하지 않습니다.</string>
+    <string name="id_check_exist">이미 중복되는 ID가 존재합니다. 다시 작성해주세요.</string>
+    <string name="id_check_none">사용 가능한 ID입니다.</string>
     <string name="create_account_text">회원가입</string>
 
     <string name="password_reset_title">비밀번호 재설정</string>
@@ -40,6 +42,7 @@
 
     <string name="button_select">관리할 아이 선택</string>
     <string name="button_introduction">조작 방법</string>
+    <string name="button_check">중복확인</string>
     <string name="button_authentication_before">전송하기</string>
     <string name="button_authentication_after">인증하기</string>
     <string name="button_teach_toothbrushing">올바른 양치질 습관</string>
@@ -54,7 +57,7 @@
 
     <string name="alert_reward_reset">목표가 달성되지 않았습니다."\n"누적횟수를 초기화 하시겠습니까?</string>
     <string name="confirm_reward_reset">누적횟수를 초기화 하시겠습니까?</string>
-    <string name="confirm_reward_none">아이 양치질의 동기부여를 위하여\n보상 시스템이 존재합니다.\n보상 시스템을 이용하시겠습니까?</string>
+    <string name="confirm_reward_none">아이 양치질의 동기부여를 위하여\n보상 시스템을 이용하시겠습니까?</string>
     <string name="confirm_reward_stop">보상 시스템을 그만 이용하시겠습니까?</string>
     <string name="alert_none_childInfo">생성된 아이의 정보가 없습니다."\n"하단의 아이 정보 생성방법을 참고해주세요.</string>
 

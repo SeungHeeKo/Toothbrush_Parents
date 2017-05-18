@@ -135,7 +135,7 @@ public class ChildDetailActivity extends AppCompatActivity {
             childPhoto_imageView.setVisibility(View.INVISIBLE);
         }
 
-        verifyUserInfo.SetViewCharacter(this, childdetail_character_frame_imageView, childdetail_characterframe, childdetail_childNickname_textView);
+        verifyUserInfo.SetViewCharacter(childdetail_character_frame_imageView, childdetail_characterframe, childdetail_childNickname_textView);
     }
 
     class BtnOnClickListener implements Button.OnClickListener {

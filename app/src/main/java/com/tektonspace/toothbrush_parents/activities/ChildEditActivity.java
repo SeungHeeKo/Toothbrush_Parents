@@ -14,6 +14,8 @@ import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.Selection;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -128,6 +130,9 @@ public class ChildEditActivity extends AppCompatActivity {
 //        // 아이 이름 정보가 없을 경우
         if (childEdit_name_editText.getText().toString().equals(getString(R.string.none_childName))) {
             childEdit_name_editText.setText("");
+            // 커서 위치 제일 마지막으로 이동
+            Editable editable = childEdit_name_editText.getText();
+            Selection.setSelection(editable, editable.length());
         }
 ////        if(childEdit_name_editText.getText().toString().isEmpty()){
 ////            childedit_layout.setBackground(getDrawable(R.drawable.childdetail_background_none));

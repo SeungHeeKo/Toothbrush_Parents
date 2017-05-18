@@ -310,7 +310,7 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical"
                             android:text=" / "
-                            android:textColor="#ffa600"
+                            android:textColor="#172a88"
                             android:textAlignment="center"
                             sl:scale_textsize="65"
                             sl:scale_height="200"
@@ -322,7 +322,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:text="10"
-                            android:textColor="#ffa600"
+                            android:textColor="#172a88"
                             android:textAlignment="center"
                             sl:scale_textsize="65"
                             sl:scale_left="120"
@@ -335,7 +335,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:text="\?"
-                            android:textColor="#ffa600"
+                            android:textColor="#172a88"
                             android:textAlignment="center"
                             sl:scale_textsize="65"
                             sl:scale_left="0"
@@ -372,9 +372,11 @@
             android:text="초콜릿"
             android:textColor="#FFFFFF"
             android:textAlignment="center"
-            sl:scale_textsize="100"
+            android:lineSpacingExtra="5dip"
+            android:maxLines="1"
+            sl:scale_textsize="85"
             sl:scale_height="250"
-            sl:scale_width="550" />
+            sl:scale_width="420" />
 </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
                         </com.ssomai.android.scalablelayout.ScalableLayout>

@@ -249,6 +249,8 @@ public class ChildSelectFragment extends Fragment {
         verifyUserInfo.SetImageViewPhoto(getActivity(), home_childPhoto_imageView);
         verifyUserInfo.SetImageViewBackgroundPhoto(getActivity(), home_background_photo_imageView);
         verifyUserInfo.SetTextViewName(home_child_name_textView);
+        verifyUserInfo.SetViewCharacter(home_character_imageView, home_character_textView);
+        verifyUserInfo.SetTodayData(home_toothbrush_morning_imageView, home_toothbrush_afternoon_imageView, home_toothbrush_evening_imageView);
         // DB 연동 후 보상 테이블 데이터 확인
         CheckRewardInfo();
     }

@@ -24,8 +24,8 @@ public class RewardSystemActivity extends AppCompatActivity {
     ImageView reward_background_photo_imageView, reward_childPhoto_imageView, reward_character_imageView;
     // 아침, 점심, 저녁 데이터
     ImageView reward_toothbrush_morning_imageView, reward_toothbrush_afternoon_imageView, reward_toothbrush_evening_imageView;
-    // 아이 이름
-    TextView reward_childName_textView;
+    // 아이 이름, 캐릭터 닉네임
+    TextView reward_childName_textView, reward_character_textView;
     public TextView reward_content_textView, reward_rewardNum_textView, reward_divider_textView, reward_totalNum_textView;
     Button reward_setting_button, titlebar_button_back, titlebar_button_home;
     // 타이틀바 버튼
@@ -64,6 +64,7 @@ public class RewardSystemActivity extends AppCompatActivity {
         reward_background_photo_imageView = (ImageView) findViewById(R.id.reward_background_photo_imageView);
         reward_childPhoto_imageView = (ImageView) findViewById(R.id.reward_childPhoto_imageView);
         reward_character_imageView = (ImageView) findViewById(R.id.reward_character_imageView);
+        reward_character_textView = (TextView) findViewById(R.id.reward_character_textView);
         reward_toothbrush_morning_imageView = (ImageView) findViewById(R.id.reward_toothbrush_morning_imageView);
         reward_toothbrush_afternoon_imageView = (ImageView) findViewById(R.id.reward_toothbrush_afternoon_imageView);
         reward_toothbrush_evening_imageView = (ImageView) findViewById(R.id.reward_toothbrush_evening_imageView);
@@ -93,6 +94,8 @@ public class RewardSystemActivity extends AppCompatActivity {
         verifyUserInfo.SetImageViewPhoto(this, reward_childPhoto_imageView);
         verifyUserInfo.SetImageViewBackgroundPhoto(this, reward_background_photo_imageView);
         verifyUserInfo.SetTextViewName(reward_childName_textView);
+        verifyUserInfo.SetViewCharacter(reward_character_imageView,reward_character_textView);
+        verifyUserInfo.SetTodayData(reward_toothbrush_morning_imageView, reward_toothbrush_afternoon_imageView, reward_toothbrush_evening_imageView);
 
         if (TextUtils.isEmpty(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_ID)))
             ShowRewardSetting();

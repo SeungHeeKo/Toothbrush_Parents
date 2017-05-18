@@ -33,6 +33,7 @@
             android:gravity="center"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
+            android:lineSpacingExtra="5dip"
             sl:scale_textsize="60"
             sl:scale_top="1080"
             sl:scale_width="1100"

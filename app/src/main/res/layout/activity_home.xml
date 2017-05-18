@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:sl="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FFFFFF"
+    android:background="@drawable/background_darkblue"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -47,15 +47,6 @@
         </RelativeLayout>
 
         <!--Fragment-->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fragment_child_select"
-            android:layout_gravity="center_horizontal"
-            sl:scale_top="262"
-            sl:scale_height="2177"
-            sl:scale_width="1800">
-        </FrameLayout>
         <!--조작방법설명, 폰즈법(올바른양치질)설명-->
         <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
             android:id="@+id/titlebar_button_layout"
@@ -124,6 +115,16 @@
                     sl:scale_width="180" />
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_child_select"
+            android:layout_gravity="center_horizontal"
+            sl:scale_top="262"
+            sl:scale_height="2177"
+            sl:scale_width="1800">
+        </FrameLayout>
 
     </com.ssomai.android.scalablelayout.ScalableLayout>
 </FrameLayout>

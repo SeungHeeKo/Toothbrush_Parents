@@ -121,6 +121,8 @@ public class InstructionActivity extends AppCompatActivity {
         moveRight_button.setOnClickListener(onClickListener);
         titlebar_button_back.setOnClickListener(onClickListener);
         titlebar_button_home.setOnClickListener(onClickListener);
+        titlebar_button_instruction.setOnClickListener(onClickListener);
+        titlebar_button_teachbrush.setOnClickListener(onClickListener);
         instruction_mom_button.setOnClickListener(onClickListener);
         instruction_kid_button.setOnClickListener(onClickListener);
         instruction_connect_button.setOnClickListener(onClickListener);
@@ -136,6 +138,7 @@ public class InstructionActivity extends AppCompatActivity {
     private void SetInstructionView(String instruction){
         switch (instruction) {
             case DB_Data.STRING_INSTRUCTION_MOM:
+                currPageNum = 0;
                 instruction_title_textView.setText(getString(R.string.title_instruction_select));
                 viewPager.setVisibility(View.VISIBLE);
                 viewPager_toothbrush.setVisibility(View.INVISIBLE);
@@ -145,6 +148,7 @@ public class InstructionActivity extends AppCompatActivity {
                 verifyUserInfo.setIsTooth(false);
                 break;
             case DB_Data.STRING_INSTRUCTION_KID:
+                currPageNum = 0;
                 instruction_title_textView.setText(getString(R.string.title_instruction_select));
                 viewPager.setVisibility(View.VISIBLE);
                 viewPager_toothbrush.setVisibility(View.INVISIBLE);
@@ -154,6 +158,7 @@ public class InstructionActivity extends AppCompatActivity {
                 verifyUserInfo.setIsTooth(false);
                 break;
             case DB_Data.STRING_INSTRUCTION_CONNECT:
+                currPageNum = 0;
                 instruction_title_textView.setText(getString(R.string.title_instruction_select));
                 viewPager.setVisibility(View.VISIBLE);
                 viewPager_toothbrush.setVisibility(View.INVISIBLE);
@@ -163,6 +168,7 @@ public class InstructionActivity extends AppCompatActivity {
                 verifyUserInfo.setIsTooth(false);
                 break;
             case DB_Data.STRING_INSTRUCTION_TOOTHBRUSH:
+                currPageNum = 0;
                 instruction_title_textView.setText(getString(R.string.title_instruction_toothbrush));
                 viewPager.setVisibility(View.INVISIBLE);
                 viewPager_toothbrush.setVisibility(View.VISIBLE);
@@ -174,6 +180,12 @@ public class InstructionActivity extends AppCompatActivity {
                 break;
 
         }
+        if (currPageNum == firstPageNum) {
+            leftAlpha.setAlpha(50);
+            rightAlpha.setAlpha(returnAlpha);
+            moveLeft_button.setEnabled(false);
+        }
+
         SetPager();
     }
 
@@ -289,6 +301,20 @@ public class InstructionActivity extends AppCompatActivity {
         public void onClick(View view) {
             try {
                 switch (view.getId()) {
+                    case R.id.titlebar_button_instruction:
+                        // 조작 방법 선택 화면으로 이동
+                        Intent intentToInstruction = new Intent(InstructionActivity.this, InstructionActivity.class);
+                        intentToInstruction.putExtra(DB_Data.STRING_INSTRUCTION, DB_Data.STRING_INSTRUCTION_MOM);
+                        startActivity(intentToInstruction);
+                        finish();
+                        break;
+                    case R.id.titlebar_button_teachbrush:
+                        // 올바른 양치질 습관과 관련된 정보를 제공하는 화면으로 이동
+                        Intent intentToToothbrushInstruction = new Intent(InstructionActivity.this, InstructionActivity.class);
+                        intentToToothbrushInstruction.putExtra(DB_Data.STRING_INSTRUCTION, DB_Data.STRING_INSTRUCTION_TOOTHBRUSH);
+                        startActivity(intentToToothbrushInstruction);
+                        finish();
+                        break;
                     case R.id.instruction_mom_button:
                         SetInstructionView(DB_Data.STRING_INSTRUCTION_MOM);
                         break;

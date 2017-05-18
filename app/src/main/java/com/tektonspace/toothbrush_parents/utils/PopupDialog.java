@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Selection;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -116,7 +117,7 @@ public class PopupDialog extends Dialog {
     private View.OnClickListener thirdClickListener;
 
     VerifyUserInfo verifyUserInfo;
-
+    Editable editable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,9 +237,15 @@ public class PopupDialog extends Dialog {
 
         if (!TextUtils.isEmpty(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_REWARD))) {
             reward_content_editText.setText(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_REWARD));
+            // 커서 위치 제일 마지막으로 이동
+            editable = reward_content_editText.getText();
+            Selection.setSelection(editable, editable.length());
         }
         if (!TextUtils.isEmpty(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_TOTAL))) {
             reward_num_editText.setText(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_TOTAL));
+            // 커서 위치 제일 마지막으로 이동
+            editable = reward_num_editText.getText();
+            Selection.setSelection(editable, editable.length());
         }
 
         // 보상 내용 editText에서 키보드 엔터 버튼 클릭시 키보드가 사라지도록
@@ -251,6 +258,36 @@ public class PopupDialog extends Dialog {
                 return false;
             }
         });
+
+        // EditText 값 변경 이벤트 탐지
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String string = editable.toString();
+                if (string.length() > 8) {
+                    // 보상 내용을 9자 이상 입력했을 경우 경고 토스트 메세지 띄우고 8자로 줄임
+                    toastMessage("8자 이내로 입력해 주세요.");
+                    String currText = reward_content_editText.getText().toString();
+                    reward_content_editText.setText(currText.substring(0, currText.length()-1));
+                    // 커서 위치 제일 마지막으로 이동
+                    editable = reward_content_editText.getText();
+                    Selection.setSelection(editable, editable.length());
+
+                }
+            }
+        };
+
+        // 비밀번호 확인란 EditText 값 변경 이벤트 탐지
+        reward_content_editText.addTextChangedListener(textWatcher);
         reward_num_editText.setFocusable(false);
         reward_num_editText.setClickable(false);
 
@@ -337,6 +374,9 @@ public class PopupDialog extends Dialog {
         data_evening_right_button = (Button) findViewById(R.id.data_evening_right_button);
 
         data_limit_time_editText.setText(verifyUserInfo.getDataLimit());
+        // 커서 위치 제일 마지막으로 이동
+        editable = data_limit_time_editText.getText();
+        Selection.setSelection(editable, editable.length());
         data_morning_button.setText(verifyUserInfo.getDataMorning());
         data_afternoon_button.setText(verifyUserInfo.getDataAfternoon());
         data_evening_button.setText(verifyUserInfo.getDataEvening());
@@ -508,6 +548,9 @@ public class PopupDialog extends Dialog {
                     rewardNum = 1;
 
                 reward_num_editText.setText(String.valueOf(rewardNum));
+                // 커서 위치 제일 마지막으로 이동
+                editable = reward_num_editText.getText();
+                Selection.setSelection(editable, editable.length());
                 break;
             case R.id.reward_num_right_button:
                 rewardNum = Integer.parseInt(reward_num_editText.getText().toString());
@@ -519,6 +562,9 @@ public class PopupDialog extends Dialog {
                     rewardNum = 15;
 
                 reward_num_editText.setText(String.valueOf(rewardNum));
+                // 커서 위치 제일 마지막으로 이동
+                editable = reward_num_editText.getText();
+                Selection.setSelection(editable, editable.length());
                 break;
             case R.id.reward_ok_button:
                 // 태블릿 혹은 DB에 보상 정보 송신
@@ -528,10 +574,18 @@ public class PopupDialog extends Dialog {
                     String result = "";
                     // DB에 보상 정보가 존재하지 않을 경우 Insert
                     if (verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_CHILDID).isEmpty()) {
-                        if (TextUtils.isEmpty(reward_content_editText.getText()))
+                        if (TextUtils.isEmpty(reward_content_editText.getText())){
                             reward_content_editText.setText(getContext().getString(R.string.string_example_reward_content));
-                        if (TextUtils.isEmpty(reward_num_editText.getText()))
+                            // 커서 위치 제일 마지막으로 이동
+                            editable = reward_content_editText.getText();
+                            Selection.setSelection(editable, editable.length());
+                        }
+                        if (TextUtils.isEmpty(reward_num_editText.getText())){
                             reward_num_editText.setText(getContext().getString(R.string.string_example_reward_total_num));
+                            // 커서 위치 제일 마지막으로 이동
+                            editable = reward_num_editText.getText();
+                            Selection.setSelection(editable, editable.length());
+                        }
                         rewardData = new String[4];
                         rewardData[0] = verifyUserInfo.getChildID();
                         rewardData[1] = reward_content_editText.getText().toString();
@@ -593,6 +647,9 @@ public class PopupDialog extends Dialog {
                 }
                 currTimeString = String.valueOf(currTimeInt);
                 data_limit_time_editText.setText(currTimeString);
+                // 커서 위치 제일 마지막으로 이동
+                editable = data_limit_time_editText.getText();
+                Selection.setSelection(editable, editable.length());
                 break;
             case R.id.data_limit_time_right_button:
                 currTimeString = data_limit_time_editText.getText().toString();
@@ -613,6 +670,9 @@ public class PopupDialog extends Dialog {
                 }
                 currTimeString = String.valueOf(currTimeInt);
                 data_limit_time_editText.setText(currTimeString);
+                // 커서 위치 제일 마지막으로 이동
+                editable = data_limit_time_editText.getText();
+                Selection.setSelection(editable, editable.length());
                 break;
             case R.id.data_morning_button:
                 DataPopupShowTimePickerDialog(data_morning_button);
@@ -711,6 +771,9 @@ public class PopupDialog extends Dialog {
             currTimeInt = 60;
             currTimeString = String.valueOf(currTimeInt);
             data_limit_time_editText.setText(currTimeString);
+            // 커서 위치 제일 마지막으로 이동
+            editable = data_limit_time_editText.getText();
+            Selection.setSelection(editable, editable.length());
         }
 
     }

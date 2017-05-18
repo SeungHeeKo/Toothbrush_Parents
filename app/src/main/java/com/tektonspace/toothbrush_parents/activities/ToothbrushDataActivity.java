@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -303,66 +304,67 @@ public class ToothbrushDataActivity extends AppCompatActivity {
 
                 if (dataList_date.size() < 1) {
 //                Toast.makeText(this, getString(R.string.error_fail_to_access_DB), Toast.LENGTH_SHORT).show();
-                    for (int j = 0; j < 7; j++)
-                        toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1), currOneDate[j]);
+//                    for (int j = 0; j < 7; j++)
+                    toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1), currOneDate[i]);
                     toothbrushDataListViewAdapter.notifyDataSetChanged();
                     listView.setAdapter(toothbrushDataListViewAdapter);
-                    return;
-                }
+//                    return;
+                } else {
 
-                for (ListItem data : dataList_date) {
-                    if (data.getData(DB_Data.INDEX_DATA_DATE).equals(currDateStringDB)) {
-                        if (!data.getData(DB_Data.INDEX_DATA_TIME).isEmpty()) {
-                            String[] time = data.getData(DB_Data.INDEX_DATA_TIME).split(":");
-                            int timeHour = 0, timeMinute = 0;
-                            timeHour = Integer.parseInt(time[0]);
-                            timeMinute = Integer.parseInt(time[1]);
+                    for (ListItem data : dataList_date) {
+                        if (data.getData(DB_Data.INDEX_DATA_DATE).equals(currDateStringDB)) {
+                            if (!data.getData(DB_Data.INDEX_DATA_TIME).isEmpty()) {
+                                String[] time = data.getData(DB_Data.INDEX_DATA_TIME).split(":");
+                                int timeHour = 0, timeMinute = 0;
+                                timeHour = Integer.parseInt(time[0]);
+                                timeMinute = Integer.parseInt(time[1]);
 
-                            currData = CheckToothbrushTime(timeHour, timeMinute, dataList_date.size());
+                                currData = CheckToothbrushTime(timeHour, timeMinute, dataList_date.size());
 
-                            switch (currData) {
-                                case 0:
-                                    if (IsTimeOnOff(currDateString, timeHour, timeMinute, MORNING_MIN_HOUR))
-                                        morningResult = R.drawable.data_morning_on;
-                                    else
-                                        morningResult = R.drawable.data_morning_off1;
+                                switch (currData) {
+                                    case 0:
+                                        if (IsTimeOnOff(currDateString, timeHour, timeMinute, MORNING_MIN_HOUR))
+                                            morningResult = R.drawable.data_morning_on;
+                                        else
+                                            morningResult = R.drawable.data_morning_off1;
 
-                                    currData++;
-                                    if (!morningDone)
-                                        morningDone = true;
-                                    break;
-                                case 1:
-                                    if (IsTimeOnOff(currDateString, timeHour, timeMinute, AFTERNOON_MIN_HOUR))
-                                        afternoonResult = R.drawable.data_afternoon_on;
-                                    else
-                                        afternoonResult = R.drawable.data_afternoon_off1;
-                                    currData++;
-                                    if (!afternoonDone)
-                                        afternoonDone = true;
-                                    break;
-                                case 2:
-                                    if (IsTimeOnOff(currDateString, timeHour, timeMinute, EVENING_MIN_HOUR))
-                                        eveningResult = R.drawable.data_evening_on;
-                                    else
-                                        eveningResult = R.drawable.data_evening_off1;
-                                    if (!eveningDone)
-                                        eveningDone = true;
-                                    break;
+                                        currData++;
+                                        if (!morningDone)
+                                            morningDone = true;
+                                        break;
+                                    case 1:
+                                        if (IsTimeOnOff(currDateString, timeHour, timeMinute, AFTERNOON_MIN_HOUR))
+                                            afternoonResult = R.drawable.data_afternoon_on;
+                                        else
+                                            afternoonResult = R.drawable.data_afternoon_off1;
+                                        currData++;
+                                        if (!afternoonDone)
+                                            afternoonDone = true;
+                                        break;
+                                    case 2:
+                                        if (IsTimeOnOff(currDateString, timeHour, timeMinute, EVENING_MIN_HOUR))
+                                            eveningResult = R.drawable.data_evening_on;
+                                        else
+                                            eveningResult = R.drawable.data_evening_off1;
+                                        if (!eveningDone)
+                                            eveningDone = true;
+                                        break;
+                                }
+
                             }
+
 
                         }
 
-
                     }
-
-                }
 
                 toothbrushDataListViewAdapter.addItem(getDrawable(morningResult), getDrawable(afternoonResult), getDrawable(eveningResult), currOneDate[i]);
                 currData = 0;
-            }
 
             toothbrushDataListViewAdapter.notifyDataSetChanged();
             listView.setAdapter(toothbrushDataListViewAdapter);
+                }
+            }
 
         } else {
             for (int i = 0; i < 7; i++)
@@ -372,7 +374,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
         }
     }
 
-    private int CheckToothbrushTime(int timeHour, int timeMinute, int arraySize) {
+    public int CheckToothbrushTime(int timeHour, int timeMinute, int arraySize) {
         int retval = -1;
 
         long childData_millisecond = SetCalendarTime(timeHour, timeMinute);
@@ -485,14 +487,13 @@ public class ToothbrushDataActivity extends AppCompatActivity {
 
             if (month == 2 && currOneWeekDay[i] > 28) {
                 ModifyOneWeek(currOneWeekDay[i], i, CASE_FEBRUARY);
-            }
-            else if (currOneWeekDay[i] < 1)
+            } else if (currOneWeekDay[i] < 1)
                 ModifyOneWeek(currOneWeekDay[i], i, CASE_LESS_THAN_ZERO);
             else if (currOneWeekDay[i] > 30) {
                 ModifyOneWeek(currOneWeekDay[i], i, CASE_MORE_THAN_LASTDAY);
             }
 
-            currOneDate[i] = String.valueOf(currOneWeekMonth[i] + 1) + "월 " + String.valueOf(currOneWeekDay[i]) + "일 " +  getString(dayResources[i]);
+            currOneDate[i] = String.valueOf(currOneWeekMonth[i] + 1) + "월 " + String.valueOf(currOneWeekDay[i]) + "일 " + getString(dayResources[i]);
         }
     }
 
@@ -524,7 +525,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
     }
 
     // String -> int
-    private void GetTimeCondition() {
+    public void GetTimeCondition() {
         Date date = new Date();
         String[] currCondition, currTime;
         int currHour, currMinute;
@@ -573,7 +574,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
         settingTime[EVENING_MINUTE] = currMinute;
     }
 
-    private long SetCalendarTime(int timeHour, int timeMinute) {
+    public long SetCalendarTime(int timeHour, int timeMinute) {
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
         gregorianCalendar.set(Calendar.HOUR_OF_DAY, timeHour);
         gregorianCalendar.set(Calendar.MINUTE, timeMinute);
@@ -585,7 +586,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
 
     }
 
-    private boolean IsTimeOnOff(String currDateString, int timeHour, int timeMinute, int index) {
+    public boolean IsTimeOnOff(String currDateString, int timeHour, int timeMinute, int index) {
         boolean retval = false;
 
         int currIndex = index;

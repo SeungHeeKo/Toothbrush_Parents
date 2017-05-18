@@ -146,7 +146,7 @@
                     android:layout_gravity="center_horizontal"
                     android:textAlignment="center"
                     android:imeOptions="actionDone"
-                    android:maxLength="15"
+                    android:maxLength="9"
                     android:singleLine="true"
                     android:textColor="#FFFFFF"
                     sl:scale_textsize="65"

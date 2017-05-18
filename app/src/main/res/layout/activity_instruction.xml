@@ -145,7 +145,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/instruction_button_left"
+                    android:background="@drawable/instruction_left"
                     android:id="@+id/instruction_left_button"
                     sl:scale_top="80"
                     sl:scale_left="500"
@@ -155,7 +155,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/instruction_button_right"
+                    android:background="@drawable/instruction_right"
                     android:id="@+id/instruction_right_button"
                     sl:scale_top="80"
                     sl:scale_left="1200"

@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tektonspace.toothbrush_parents.activities.ToothbrushDataActivity;
 import com.tektonspace.toothbrush_parents.constants.DB_Data;
 import com.tektonspace.toothbrush_parents.adapter.ListItem;
 import com.tektonspace.toothbrush_parents.R;
@@ -35,6 +36,9 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import android.Manifest;
 
@@ -269,6 +273,7 @@ public class VerifyUserInfo extends Application {
         dataMorning = "오전 9:00";
         dataAfternoon = "오후 12:30";
         dataEvening = "오후 6:00";
+        dbManager = new DB_Manager();
 
         super.onCreate();
     }
@@ -815,14 +820,14 @@ public class VerifyUserInfo extends Application {
             textView.setText(getString(R.string.none_childName));
     }
 
-    public boolean SetViewCharacter(Activity activity, ImageView imageView, RelativeLayout relativeLayout, TextView textView){
+    public boolean SetViewCharacter(ImageView imageView, RelativeLayout relativeLayout, TextView textView){
         boolean retval = false;
         if(!TextUtils.isEmpty(this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER))){
 //        if(!this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER).isEmpty()){
             relativeLayout.getBackground().setAlpha(0);
             imageView.setVisibility(ImageView.VISIBLE);
 
-            Drawable color = new ColorDrawable(Color.WHITE);
+            Drawable color = new ColorDrawable(Color.TRANSPARENT);
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, getDrawable(GetCharacter(this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER)))});
             imageView.setImageDrawable(layerDrawable);
         }
@@ -840,13 +845,13 @@ public class VerifyUserInfo extends Application {
         return retval;
     }
 
-    public boolean SetViewCharacter(Activity activity, ImageView imageView, TextView textView){
+    public boolean SetViewCharacter(ImageView imageView, TextView textView){
         boolean retval = false;
         if(!TextUtils.isEmpty(this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER))){
 //        if(!this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER).isEmpty()){
             imageView.setVisibility(ImageView.VISIBLE);
 
-            Drawable color = new ColorDrawable(Color.WHITE);
+            Drawable color = new ColorDrawable(Color.TRANSPARENT);
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, getDrawable(GetCharacter(this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER)))});
             imageView.setImageDrawable(layerDrawable);
         }
@@ -862,6 +867,7 @@ public class VerifyUserInfo extends Application {
         }
         return retval;
     }
+
     public int GetCharacter(String characterName) {
         int resultID = -1;
         switch (characterName) {
@@ -879,6 +885,232 @@ public class VerifyUserInfo extends Application {
         }
         return resultID;
     }
+
+    GregorianCalendar calendar;
+    int[] timeCondition = new int[12];
+    int[] settingTime = new int[6];
+    private static final int MORNING_MIN_HOUR = 0;
+    private static final int MORNING_MIN_MINUTE = 1;
+    private static final int MORNING_MAX_HOUR = 2;
+    private static final int MORNING_MAX_MINUTE = 3;
+    private static final int AFTERNOON_MIN_HOUR = 4;
+    private static final int AFTERNOON_MIN_MINUTE = 5;
+    private static final int AFTERNOON_MAX_HOUR = 6;
+    private static final int AFTERNOON_MAX_MINUTE = 7;
+    private static final int EVENING_MIN_HOUR = 8;
+    private static final int EVENING_MIN_MINUTE = 9;
+    private static final int EVENING_MAX_HOUR = 10;
+    private static final int EVENING_MAX_MINUTE = 11;
+
+    private static final int MORNING_HOUR = 0;
+    private static final int MORNING_MINUTE = 1;
+    private static final int AFTERNOON_HOUR = 2;
+    private static final int AFTERNOON_MINUTE = 3;
+    private static final int EVENING_HOUR = 4;
+    private static final int EVENING_MINUTE = 5;
+
+    public void SetTodayData(ImageView morningView, ImageView afternoonView, ImageView eveningView){
+        if(!TextUtils.isEmpty(this.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER))){
+            // 양치 데이터 저장할 ArrayList
+            ArrayList<ListItem> dataList_date = new ArrayList<ListItem>();
+            int currData = 0;
+            int morningResult = R.drawable.toothbrush_off1, afternoonResult = R.drawable.toothbrush_off1, eveningResult = R.drawable.toothbrush_off1;
+
+            calendar = new GregorianCalendar();
+            GetTimeCondition();
+            String currDateString = String.valueOf(calendar.get(Calendar.YEAR)) + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+            String currDateStringDB = String.valueOf(calendar.get(Calendar.YEAR)) + "_" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "_";
+            // 한 자리수 day일 경우
+            if (String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)).length() == 1) {
+                currDateString += "0";
+                currDateString += String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+                currDateStringDB += "0";
+                currDateStringDB += String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+            } else {
+                currDateString += String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+                currDateStringDB += String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+            }
+            dataList_date = this.GetDataFromTable(DB_Data.TABLE_DATA_INFO, this.getChildID(), currDateStringDB);
+
+            // 아직 오늘 양치 데이터가 없을 경우 전부 off
+            if (dataList_date.size() < 1) {
+                morningView.setImageDrawable(getDrawable(R.drawable.toothbrush_off1));
+                afternoonView.setImageDrawable(getDrawable(R.drawable.toothbrush_off1));
+                eveningView.setImageDrawable(getDrawable(R.drawable.toothbrush_off1));
+                return;
+            }
+            else{
+                for (ListItem data : dataList_date) {
+                    if (data.getData(DB_Data.INDEX_DATA_DATE).equals(currDateStringDB)) {
+                        if (!data.getData(DB_Data.INDEX_DATA_TIME).isEmpty()) {
+                            String[] time = data.getData(DB_Data.INDEX_DATA_TIME).split(":");
+                            int timeHour = 0, timeMinute = 0;
+                            timeHour = Integer.parseInt(time[0]);
+                            timeMinute = Integer.parseInt(time[1]);
+
+                            currData = CheckToothbrushTime(timeHour, timeMinute, dataList_date.size());
+
+                            switch (currData) {
+                                case 0:
+                                    if (IsTimeOnOff(currDateString, timeHour, timeMinute, MORNING_MIN_HOUR))
+                                        morningResult = R.drawable.toothbrush_on1;
+                                    else
+                                        morningResult = R.drawable.toothbrush_off1;
+
+                                    currData++;
+                                    break;
+                                case 1:
+                                    if (IsTimeOnOff(currDateString, timeHour, timeMinute, AFTERNOON_MIN_HOUR))
+                                        afternoonResult = R.drawable.toothbrush_on1;
+                                    else
+                                        afternoonResult = R.drawable.toothbrush_off1;
+                                    currData++;
+                                    break;
+                                case 2:
+                                    if (IsTimeOnOff(currDateString, timeHour, timeMinute, EVENING_MIN_HOUR))
+                                        eveningResult = R.drawable.toothbrush_on1;
+                                    else
+                                        eveningResult = R.drawable.toothbrush_off1;
+                                    break;
+                            }
+
+                        }
+
+
+                    }
+
+                }
+                morningView.setImageDrawable(getDrawable(morningResult));
+                afternoonView.setImageDrawable(getDrawable(afternoonResult));
+                eveningView.setImageDrawable(getDrawable(eveningResult));
+            }
+
+        }
+    }
+
+    public int CheckToothbrushTime(int timeHour, int timeMinute, int arraySize) {
+        int retval = -1;
+
+        long childData_millisecond = SetCalendarTime(timeHour, timeMinute);
+        long morning_millisecond = SetCalendarTime(settingTime[MORNING_HOUR], settingTime[MORNING_MINUTE]);
+        long afternoon_millisecond = SetCalendarTime(settingTime[AFTERNOON_HOUR], settingTime[AFTERNOON_MINUTE]);
+        long evening_millisecond = SetCalendarTime(settingTime[EVENING_HOUR], settingTime[EVENING_MINUTE]);
+
+        long morningGap = Math.abs(childData_millisecond - morning_millisecond);
+        long afternoonGap = Math.abs(childData_millisecond - afternoon_millisecond);
+        long eveningGap = Math.abs(childData_millisecond - evening_millisecond);
+
+        if (Math.min(morningGap, afternoonGap) == morningGap) {
+            if (Math.min(morningGap, eveningGap) == morningGap) {
+                // 아침
+                retval = 0;
+            }
+            // 저녁
+            else
+                retval = 2;
+        } else {
+            if (Math.min(afternoonGap, eveningGap) == afternoonGap) {
+                // 점심
+                retval = 1;
+            }
+            // 저녁
+            else
+                retval = 2;
+        }
+        return retval;
+    }
+
+    public long SetCalendarTime(int timeHour, int timeMinute) {
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        gregorianCalendar.set(Calendar.HOUR_OF_DAY, timeHour);
+        gregorianCalendar.set(Calendar.MINUTE, timeMinute);
+        gregorianCalendar.set(Calendar.SECOND, 0);
+        gregorianCalendar.set(Calendar.MILLISECOND, 0);
+        Date gregorianCalendar_date = gregorianCalendar.getTime();
+
+        return gregorianCalendar_date.getTime();
+
+    }
+
+    // String -> int
+    public void GetTimeCondition() {
+        Date date = new Date();
+        String[] currCondition, currTime;
+        int currHour, currMinute;
+        // 아침
+        currCondition = this.getDataMorning().split(" ");
+        currTime = currCondition[1].split(":");
+
+        currHour = Integer.parseInt(currTime[0]);
+        currMinute = Integer.parseInt(currTime[1]);
+        if (currCondition[0].equals("오전")) {
+
+        } else {
+            currHour += 12;
+        }
+        CalculateMinMax(currHour, currMinute, MORNING_MIN_HOUR);
+        settingTime[MORNING_HOUR] = currHour;
+        settingTime[MORNING_MINUTE] = currMinute;
+
+        // 점심
+        currCondition = this.getDataAfternoon().split(" ");
+        currTime = currCondition[1].split(":");
+        currHour = Integer.parseInt(currTime[0]);
+        currMinute = Integer.parseInt(currTime[1]);
+        if (currCondition[0].equals("오전")) {
+
+        } else {
+            if (currHour != 12)
+                currHour += 12;
+        }
+        CalculateMinMax(currHour, currMinute, AFTERNOON_MIN_HOUR);
+        settingTime[AFTERNOON_HOUR] = currHour;
+        settingTime[AFTERNOON_MINUTE] = currMinute;
+
+        // 저녁
+        currCondition = this.getDataEvening().split(" ");
+        currTime = currCondition[1].split(":");
+        currHour = Integer.parseInt(currTime[0]);
+        currMinute = Integer.parseInt(currTime[1]);
+        if (currCondition[0].equals("오전")) {
+
+        } else {
+            currHour += 12;
+        }
+        CalculateMinMax(currHour, currMinute, EVENING_MIN_HOUR);
+        settingTime[EVENING_HOUR] = currHour;
+        settingTime[EVENING_MINUTE] = currMinute;
+    }
+
+    private void CalculateMinMax(int hour, int minute, int index) {
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minute);
+        calendar.add(Calendar.MINUTE, -Integer.parseInt(this.getDataLimit()));
+        timeCondition[index++] = calendar.get(Calendar.HOUR_OF_DAY);
+        timeCondition[index++] = calendar.get(Calendar.MINUTE);
+
+        calendar.add(Calendar.MINUTE, +Integer.parseInt(this.getDataLimit()) * 2);
+        timeCondition[index++] = calendar.get(Calendar.HOUR_OF_DAY);
+        timeCondition[index] = calendar.get(Calendar.MINUTE);
+    }
+    public boolean IsTimeOnOff(String currDateString, int timeHour, int timeMinute, int index) {
+        boolean retval = false;
+
+        int currIndex = index;
+
+        // 아침
+        long childData_millisecond = SetCalendarTime(timeHour, timeMinute);
+        long minData_millisecond = SetCalendarTime(timeCondition[index++], timeCondition[index++]);
+        long maxData_millisecond = SetCalendarTime(timeCondition[index++], timeCondition[index++]);
+
+        if (timeHour >= timeCondition[currIndex] && timeHour <= timeCondition[currIndex + 2]) {
+            if (childData_millisecond >= minData_millisecond && childData_millisecond <= maxData_millisecond)
+                return retval = true;
+        }
+
+        return retval;
+    }
+
     public void CheckPermission(Activity activity) {
         String photoUri = "";
     /* 사용자의 OS 버전이 마시멜로우 이상인지 체크한다. */
