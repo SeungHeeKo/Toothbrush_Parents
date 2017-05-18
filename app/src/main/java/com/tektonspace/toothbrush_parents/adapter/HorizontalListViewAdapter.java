@@ -82,7 +82,7 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         //아이 사진 정보가 존재하지 않을 경우
         if(listViewItem.getChildPhoto().length() <= 0){
 //                photoLayout = convertView.getContext().getDrawable(R.drawable.childselect_photo_frame_none1);
-            viewHolder.childPhoto_imageView.setImageDrawable(convertView.getContext().getDrawable(R.drawable.home_child_photo));
+            viewHolder.childPhoto_imageView.setImageDrawable(convertView.getContext().getDrawable(R.drawable.home_child_photo1));
         }
         else{
 //                photoLayout = convertView.getContext().getDrawable(R.drawable.childselect_photo_frame1);

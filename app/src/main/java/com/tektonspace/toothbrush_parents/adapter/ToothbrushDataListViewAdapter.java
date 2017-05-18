@@ -86,7 +86,12 @@ public class ToothbrushDataListViewAdapter extends BaseAdapter {
         ToothbrushDataListViewItem listViewItem = toothbrushDataList.get(position);
 
         // 요일 정보 출력
-        viewHolder.toothbrush_data_day_textView.setText(dayResouces[position]);
+//        String dateDay = "";
+//        dateDay = listViewItem.getMonthDay();
+//        dateDay += " ";
+//        dateDay += dayResouces[position];
+//        viewHolder.toothbrush_data_day_textView.setText(dayResouces[position]);
+        viewHolder.toothbrush_data_day_textView.setText(listViewItem.getMonthDay());
 
         // 아침, 점심, 저녁별 아이 양치 정보 출력
         viewHolder.toothbrush_data_morning_imageView.setImageDrawable(listViewItem.getMorningData());
@@ -110,12 +115,13 @@ public class ToothbrushDataListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable morning, Drawable afternoon, Drawable evening) {
+    public void addItem(Drawable morning, Drawable afternoon, Drawable evening, String day) {
         ToothbrushDataListViewItem item = new ToothbrushDataListViewItem();
 
         item.setMorningData(morning);
         item.setAfternoonData(afternoon);
         item.setEveningData(evening);
+        item.setMonthDay(day);
 
         toothbrushDataList.add(item);
     }

@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            sl:srcCompat="@drawable/popup_reward_reset_background1"
+            sl:srcCompat="@drawable/popup_reward_reset_background"
             android:id="@+id/reward_reset_imageView"
             sl:scale_top="700"
             sl:scale_width="1330"
@@ -30,12 +30,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/reward_reset_textView"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            sl:scale_textsize="65"
-            sl:scale_top="1130"
-            sl:scale_width="950"
-            sl:scale_height="182"/>
+            sl:scale_textsize="60"
+            sl:scale_top="1080"
+            sl:scale_width="1100"
+            sl:scale_height="250"/>
 
         <Button
             android:text="@string/button_ok"

@@ -65,7 +65,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_button_back1"
+                    android:background="@drawable/titlebar_button_back"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_back"
                     android:alpha=".7"
@@ -75,7 +75,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_button_home1"
+                    android:background="@drawable/titlebar_button_home"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_home"
                     android:alpha=".7"
@@ -85,7 +85,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_instruction"
+                    android:background="@drawable/titlebar_instruction1"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_instruction"
                     android:alpha=".7"
@@ -95,7 +95,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_teachbrush"
+                    android:background="@drawable/titlebar_teachbrush1"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_teachbrush"
                     android:alpha=".7"
@@ -112,14 +112,14 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             sl:scale_top="262"
-            sl:scale_height="1350"
+            sl:scale_height="1212"
             sl:scale_width="1800">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            sl:scale_base_height="1350"
+            sl:scale_base_height="1212"
             sl:scale_base_width="1800">
 
             <!--background photo-->
@@ -129,14 +129,14 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/childedit_background"
-                sl:scale_height="950"
+                sl:scale_height="1212"
                 sl:scale_width="1800">
 
                 <com.ssomai.android.scalablelayout.ScalableLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    sl:scale_base_height="950"
+                    sl:scale_base_height="1212"
                     sl:scale_base_width="1800">
 
 
@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         sl:srcCompat="@drawable/childedit_background"
                         android:id="@+id/childedit_background_photo_imageView"
-                        sl:scale_height="950"
+                        sl:scale_height="1212"
                         sl:scale_width="1800" />
                 </com.ssomai.android.scalablelayout.ScalableLayout>
             </RelativeLayout>
@@ -155,7 +155,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/childedit_background_photo"
+                android:background="@drawable/childedit_background_photo1"
                 android:id="@+id/childedit_background_photo_button"
                 sl:scale_top="80"
                 sl:scale_left="1500"
@@ -167,7 +167,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/childedit_photo"
                 sl:scale_height="525"
                 sl:scale_width="525"
                 sl:scale_top="160">
@@ -185,7 +184,7 @@
                         sl:scale_top="5"
                         sl:scale_height="525"
                         sl:scale_width="525"
-                        sl:srcCompat="@drawable/childedit_photo"
+                        sl:srcCompat="@drawable/childedit_photo1"
                         app:civ_border="false"
                         app:civ_shadow="true"
                         app:civ_shadow_color="@android:color/transparent"

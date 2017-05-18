@@ -83,7 +83,7 @@ public class PopupDialog extends Dialog {
     int[] bluetoothResources = {};
 
     // 보상 설정 팝업창 객체
-    Button reward_num_left_button, reward_num_right_button, reward_totalNum_reset_button, reward_ok_button, reward_cancel_button;
+    Button reward_num_left_button, reward_num_right_button, reward_totalNum_reset_button, reward_ok_button, reward_cancel_button, reward_stop_reward_button;
     EditText reward_num_editText, reward_content_editText;
     // 보상 횟수 설정
     int rewardNum = 0;
@@ -153,6 +153,12 @@ public class PopupDialog extends Dialog {
             case DB_Data.POPUP_REWARD_SETTING_RESET:    // 보상 설정_누적 횟수 초기화 팝업창
                 InstantiateRewardResetPopup();
                 break;
+            case DB_Data.POPUP_REWARD_SETTING_NONE:    // 보상 설정_첫 보상 설정 팝업창
+                InstantiateRewardNonePopup();
+                break;
+            case DB_Data.POPUP_REWARD_SETTING_STOP:    // 보상 설정_첫 보상 설정 팝업창
+                InstantiateRewardStopPopup();
+                break;
             case DB_Data.POPUP_DATA_SETTING:
                 InstantiateDataSettingPopup();
                 break;
@@ -221,6 +227,7 @@ public class PopupDialog extends Dialog {
         reward_num_left_button = (Button) findViewById(R.id.reward_num_left_button);
         reward_num_right_button = (Button) findViewById(R.id.reward_num_right_button);
         reward_totalNum_reset_button = (Button) findViewById(R.id.reward_totalNum_reset_button);
+        reward_stop_reward_button = (Button) findViewById(R.id.reward_stop_reward_button);
         reward_ok_button = (Button) findViewById(R.id.reward_ok_button);
         reward_cancel_button = (Button) findViewById(R.id.reward_cancel_button);
         reward_num_editText = (EditText) findViewById(R.id.reward_num_editText);
@@ -253,9 +260,10 @@ public class PopupDialog extends Dialog {
         reward_num_right_button.setOnClickListener(onClickListener);
         reward_ok_button.setOnClickListener(onClickListener);
 
-        if (mLeftClickListener != null && mRightClickListener != null) {
+        if (mLeftClickListener != null && mRightClickListener != null && thirdClickListener != null) {
             reward_totalNum_reset_button.setOnClickListener(mLeftClickListener);
             reward_cancel_button.setOnClickListener(mRightClickListener);
+            reward_stop_reward_button.setOnClickListener(thirdClickListener);
         }
 
     }
@@ -278,6 +286,34 @@ public class PopupDialog extends Dialog {
                 reward_reset_textView.setText(getContext().getString(R.string.alert_reward_reset));
             }
         }
+        if (mLeftClickListener != null && mRightClickListener != null) {
+            reward_reset_ok_button.setOnClickListener(mLeftClickListener);
+            reward_reset_cancel_button.setOnClickListener(mRightClickListener);
+        }
+    }
+
+    private void InstantiateRewardNonePopup() {
+        setContentView(R.layout.dialog_reward_reset_popup);
+        reward_reset_textView = (TextView) findViewById(R.id.reward_reset_textView);
+        reward_reset_ok_button = (Button) findViewById(R.id.reward_reset_ok_button);
+        reward_reset_cancel_button = (Button) findViewById(R.id.reward_reset_cancel_button);
+
+
+        reward_reset_textView.setText(getContext().getString(R.string.confirm_reward_none));
+        if (mLeftClickListener != null && mRightClickListener != null) {
+            reward_reset_ok_button.setOnClickListener(mLeftClickListener);
+            reward_reset_cancel_button.setOnClickListener(mRightClickListener);
+        }
+    }
+
+    private void InstantiateRewardStopPopup() {
+        setContentView(R.layout.dialog_reward_reset_popup);
+        reward_reset_textView = (TextView) findViewById(R.id.reward_reset_textView);
+        reward_reset_ok_button = (Button) findViewById(R.id.reward_reset_ok_button);
+        reward_reset_cancel_button = (Button) findViewById(R.id.reward_reset_cancel_button);
+
+
+        reward_reset_textView.setText(getContext().getString(R.string.confirm_reward_stop));
         if (mLeftClickListener != null && mRightClickListener != null) {
             reward_reset_ok_button.setOnClickListener(mLeftClickListener);
             reward_reset_cancel_button.setOnClickListener(mRightClickListener);
@@ -706,7 +742,7 @@ public class PopupDialog extends Dialog {
         this.mRightClickListener = secondListener;
     }
 
-    // 보상 설정 팝업창 / 횟수 증감 설정, 초기화 버튼
+    // 보상 설정 팝업창 / 초기화, 보상 안하기, 취소 버튼
     public PopupDialog(Context context, int index, View.OnClickListener firstListener, View.OnClickListener secondListener, View.OnClickListener thirdListener) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         popup_index = index;

@@ -120,25 +120,28 @@ public class ChildEditActivity extends AppCompatActivity {
         verifyUserInfo = (VerifyUserInfo) getApplicationContext();
 
         // 아이 사진, 이름 정보가 있을 경우 화면에 출력
-        ifChildPhotoExist = verifyUserInfo.SetImageViewPhoto(this, childEdit_childPhoto_imageView, childEdit_photo_layout);
+        ifChildPhotoExist = verifyUserInfo.SetImageViewPhoto(this, childEdit_childPhoto_imageView);
+        verifyUserInfo.SetImageViewBackgroundPhoto(this, childedit_background_photo_imageView);
         verifyUserInfo.SetTextViewName(childEdit_name_editText);
         verifyUserInfo.addActivities(this);
 
-        // 아이 이름 정보가 없을 경우
-        if (!TextUtils.isEmpty(childEdit_name_editText.getText().toString())) {
-//        if(childEdit_name_editText.getText().toString().isEmpty()){
-            childedit_layout.setBackground(getDrawable(R.drawable.childdetail_background_none));
-        } else
-            childedit_layout.setBackground(getDrawable(R.drawable.childdetail_background));
+//        // 아이 이름 정보가 없을 경우
+        if (childEdit_name_editText.getText().toString().equals(getString(R.string.none_childName))) {
+            childEdit_name_editText.setText("");
+        }
+////        if(childEdit_name_editText.getText().toString().isEmpty()){
+////            childedit_layout.setBackground(getDrawable(R.drawable.childdetail_background_none));
+//        } else
+//            childedit_layout.setBackground(getDrawable(R.drawable.childdetail_background));
         // 아이 사진 정보가 있을 경우
         if (ifChildPhotoExist) {
-            childEdit_photo_layout.setBackground(getDrawable(R.drawable.childedit_photoframe));
-            childEdit_childPhoto_imageView.setVisibility(View.VISIBLE);
+//            childEdit_photo_layout.setBackground(getDrawable(R.drawable.childedit_photo));
+//            childEdit_childPhoto_imageView.setVisibility(View.VISIBLE);
         }
         // 아이 사진 정보가 없을 경우
         else {
-            childEdit_photo_layout.setBackground(getDrawable(R.drawable.childselect_photo_frame_none1));
-            childEdit_childPhoto_imageView.setVisibility(View.INVISIBLE);
+//            childEdit_photo_layout.setBackground(getDrawable(R.drawable.childselect_photo_frame_none1));
+            childEdit_childPhoto_imageView.setImageDrawable(getDrawable(R.drawable.childedit_photo1));
         }
 
         childEdit_name_editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -154,7 +157,6 @@ public class ChildEditActivity extends AppCompatActivity {
     }
 
     private void saveButtonClickEvent() {
-
         SaveDataInDB();
         // 아이 정보 화면으로 전환
         Intent intentToDetail = new Intent(ChildEditActivity.this, HomeActivity.class);

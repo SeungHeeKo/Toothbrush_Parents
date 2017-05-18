@@ -37,6 +37,8 @@ import com.tektonspace.toothbrush_parents.activities.ChildEditActivity;
 import com.tektonspace.toothbrush_parents.activities.ChildSelectActivity;
 import com.tektonspace.toothbrush_parents.activities.HomeActivity;
 import com.tektonspace.toothbrush_parents.activities.InstructionActivity;
+import com.tektonspace.toothbrush_parents.activities.RewardSystemActivity;
+import com.tektonspace.toothbrush_parents.activities.ToothbrushDataActivity;
 import com.tektonspace.toothbrush_parents.adapter.ChildSelectListViewAdapter;
 import com.tektonspace.toothbrush_parents.adapter.HorizontalListView;
 import com.tektonspace.toothbrush_parents.adapter.HorizontalListViewAdapter;
@@ -80,12 +82,23 @@ public class ChildSelectFragment extends Fragment {
     HorizontalListViewAdapter childSelectListViewAdapter;
 
     ArrayList<ListItem> userInfo, childInfo;
+    ListItem currChildInfo = new ListItem("", "", "", "", "", "", "", "");
 
     VerifyUserInfo verifyUserInfo;
 
     int characterID = -1;
     String childPhoto = "";
     int childIndexNum = 0;
+    String childID = "";
+    boolean ifChildPhotoExist = false;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            GetBundle();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,7 +125,7 @@ public class ChildSelectFragment extends Fragment {
         home_character_textView = (TextView) view.findViewById(R.id.home_character_textView);
         home_child_name_textView = (TextView) view.findViewById(R.id.home_child_name_textView);
         home_icon_alert_reward_imageView = (ImageView) view.findViewById(R.id.home_icon_alert_reward_imageView);
-//        home_icon_alert_reward_imageView.setVisibility(View.INVISIBLE);
+        home_icon_alert_reward_imageView.setVisibility(View.INVISIBLE);
         listView = (HorizontalListView) view.findViewById(R.id.home_child_listview);
         childInfo = new ArrayList<ListItem>();
         // listview adapter 생성
@@ -141,6 +154,8 @@ public class ChildSelectFragment extends Fragment {
                     // 해당 ID값을 가진 아이의 정보를 ChildInfo 테이블에서 검색
                     childInfo = verifyUserInfo.GetDataFromTable(DB_Data.TABLE_CHILD_INFO, verifyUserInfo.getUserData().get(position).getData(DB_Data.INDEX_USER_CHILDID));
 //                    verifyUserInfo.setChildData(childInfo.get(0));
+                    childID = childInfo.get(0).getData(DB_Data.INDEX_CHILD_ID);
+                    verifyUserInfo.setChildID(childInfo.get(0).getData(DB_Data.INDEX_CHILD_ID));
                     SetChildInfo(childInfo.get(0));
 
 //                intentToDetail.putExtra(DB_Data.STRING_USER_ID, verifyUserInfo.getUserData().get(position).getData(DB_Data.INDEX_USER_ID));
@@ -159,6 +174,19 @@ public class ChildSelectFragment extends Fragment {
 
     }
 
+    private void GetBundle() {
+        String[] childData = new String[8];
+        for (int i = 0; i < 8; i++) {
+            childData[i] = "";
+        }
+        childData[DB_Data.INDEX_CHILD_ID] = getArguments().getString(DB_Data.STRING_CHILD_ID);
+        childData[DB_Data.INDEX_CHILD_PHOTO] = getArguments().getString(DB_Data.STRING_CHILD_PHOTO);
+        childData[DB_Data.INDEX_CHILD_NAME] = getArguments().getString(DB_Data.STRING_CHILD_NAME);
+        childData[DB_Data.INDEX_CHILD_BACKGROUNDPHOTO] = getArguments().getString(DB_Data.STRING_CHILD_BACKGROUNDPHOTO);
+
+        currChildInfo.setData(childData);
+    }
+
     private void InsertInfoIntoListview() {
         if (!DB_Data.IS_TEST_VERSION) {
             // WIFI 모드일 경우 태블릿에서 수신한 ChildID값으로 ChildInfo 테이블 검색
@@ -171,8 +199,14 @@ public class ChildSelectFragment extends Fragment {
 //                    if(!item.getData(DB_Data.INDEX_USER_CHILDID).isEmpty() && Integer.parseInt(item.getData(DB_Data.INDEX_USER_CHILDID)) > 0){
                         // 해당 ID값을 가진 아이의 정보를 ChildInfo 테이블에서 검색
                         childInfo = verifyUserInfo.GetDataFromTable(DB_Data.TABLE_CHILD_INFO, item.getData(DB_Data.INDEX_USER_CHILDID));
-                        if (childIndexNum++ == 0)
-                            SetChildInfo(childInfo.get(0));
+                        // 첫 화면에 첫 번째 아이의 정보가 출력되도록 함
+                        if (childIndexNum++ == 0) {
+                            if (TextUtils.isEmpty(currChildInfo.getData(0))) {
+                                verifyUserInfo.setChildID(childInfo.get(0).getData(DB_Data.INDEX_CHILD_ID));
+                                for (int i = 0; i < currChildInfo.length(); i++)
+                                    currChildInfo.changeData(i, childInfo.get(0).getData(i));
+                            }
+                        }
                         if (!TextUtils.isEmpty(childInfo.get(0).getData(DB_Data.INDEX_CHILD_CHARACTER)))
 //                        if (!childInfo.get(0).getData(DB_Data.INDEX_CHILD_CHARACTER).isEmpty())
                             characterID = verifyUserInfo.GetCharacter(childInfo.get(0).getData(DB_Data.INDEX_CHILD_CHARACTER));
@@ -183,8 +217,7 @@ public class ChildSelectFragment extends Fragment {
                             if (verifyUserInfo.getisPermissionGranted()) {
                                 childPhoto = verifyUserInfo.getRealPathFromURI(Uri.parse(childInfo.get(0).getData(DB_Data.INDEX_CHILD_PHOTO)));
                             }
-                        }
-                        else{
+                        } else {
                             childPhoto = "";
                         }
 //
@@ -197,7 +230,8 @@ public class ChildSelectFragment extends Fragment {
                         childSelectListViewAdapter.addItem(childPhoto);
                     }
                 }
-                // 첫 번째 아이의 정보를 화면에 출력
+
+                SetChildInfo(currChildInfo);
             }
             // 블루투스 모드일 경우
             else {
@@ -210,12 +244,46 @@ public class ChildSelectFragment extends Fragment {
     }
 
     private void SetChildInfo(ListItem listItem) {
+        childID = listItem.getData(DB_Data.INDEX_CHILD_ID);
         verifyUserInfo.setChildData(listItem);
         verifyUserInfo.SetImageViewPhoto(getActivity(), home_childPhoto_imageView);
         verifyUserInfo.SetImageViewBackgroundPhoto(getActivity(), home_background_photo_imageView);
         verifyUserInfo.SetTextViewName(home_child_name_textView);
+        // DB 연동 후 보상 테이블 데이터 확인
+        CheckRewardInfo();
     }
 
+    private void CheckRewardInfo(){
+        if(!DB_Data.IS_TEST_VERSION){
+            // RewardInfo 테이블에서 child ID값에 따른 누적 양치 횟수 검색
+            verifyUserInfo.GetDataFromTable(DB_Data.TABLE_REWARD_INFO, childID);
+            // 아이가 둘 이상일 경우, 보상 정보가 있는 아이의 정보가 화면에 출력될 수 있으니 ChildID 일치 여부를 먼저 확인
+            // 현재 ChildID에 해당하는 보상 정보가 존재할 경우
+
+            if(!TextUtils.isEmpty(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_CHILDID)) && verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_CHILDID).equals(childID)){
+                // 누적 양치 횟수와 설정한 보상 횟수 값이 같을 경우 알림 배지가 보이도록 함
+                if(!TextUtils.isEmpty(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_CURRENT)) && !TextUtils.isEmpty(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_TOTAL))) {
+                    if (Integer.parseInt(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_CURRENT)) >= Integer.parseInt(verifyUserInfo.getRewardData().getData(DB_Data.INDEX_REWARD_TOTAL))) {
+                        home_icon_alert_reward_imageView.setVisibility(View.VISIBLE);
+                    } else
+                        home_icon_alert_reward_imageView.setVisibility(View.INVISIBLE);
+                }
+                else
+                    home_icon_alert_reward_imageView.setVisibility(View.INVISIBLE);
+            }
+            // RewardData에 검색된 ChildID와 현재 아이의 ChildID가 불일치할 경우, DB에 해당 아이의 보상 정보가 없는 것
+            // rewardData 초기화
+            else{
+                verifyUserInfo.clearRewardData();
+                home_icon_alert_reward_imageView.setVisibility(View.INVISIBLE);
+            }
+
+        }
+        else{
+            home_icon_alert_reward_imageView.setVisibility(View.VISIBLE);
+        }
+
+    }
     private Drawable GetDrawable(int drawableIndex) {
         Drawable returnDrawable;
 
@@ -234,6 +302,16 @@ public class ChildSelectFragment extends Fragment {
                     // 아이 정보 편집 화면으로 전환
                     Intent intentToEdit = new Intent(ChildSelectFragment.this.getActivity(), ChildEditActivity.class);
                     startActivity(intentToEdit);
+                    break;
+                case R.id.home_data_button:
+                    // 양치 데이터 확인 화면으로 전환
+                    Intent intentToToothbrush = new Intent(ChildSelectFragment.this.getActivity(), ToothbrushDataActivity.class);
+                    startActivity(intentToToothbrush);
+                    break;
+                case R.id.home_reward_button:
+                    // 보상 시스템 화면으로 전환
+                    Intent intentToReward = new Intent(ChildSelectFragment.this.getActivity(), RewardSystemActivity.class);
+                    startActivity(intentToReward);
                     break;
             }
         }

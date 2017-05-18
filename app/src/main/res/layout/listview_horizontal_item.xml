@@ -21,7 +21,7 @@
             android:layout_gravity="center"
             sl:scale_height="230"
             sl:scale_width="230"
-            sl:srcCompat="@drawable/childselect_photo_frame_none1"
+            sl:srcCompat="@drawable/home_child_photo1"
             app:civ_border="false"
             app:civ_shadow="true"
             app:civ_shadow_color="@android:color/transparent"

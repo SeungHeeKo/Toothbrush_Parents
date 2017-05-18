@@ -513,73 +513,6 @@ public class VerifyUserInfo extends Application {
         return foundUserItems;
     }
 
-    public String UpdateDataInTable(int tableName, String[] inputDatas, String id) {
-        String result = "";
-        String inputData = "";
-        for (int i = 0; i < inputDatas.length; i++) {
-            if (i != 0)
-                inputData += "\t";
-            inputData += inputDatas[i];
-        }
-
-        switch (tableName) {
-            case DB_Data.TABLE_USER_INFO:
-                result = dbManager.update_data_toDB(DB_Data.TABLE_USER_INFO, inputData, id);
-                break;
-            case DB_Data.TABLE_CHILD_INFO:
-                // Update문 - 연결 방식 저장 (블루투스)
-                if(inputDatas.length == 1)
-                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_NAME, inputData, id);
-                // Update문 - 아이 이름, 사진 uri, 배경 사진 uri 변경
-                else if (inputDatas.length == 3)
-                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_NAME, inputData, id);
-                    // Update문 - 블루투스 id, 닉네임, 캐릭터  (태블릿이 블루투스 모드일 경우)
-//                else if (inputDatas.length == 3)
-//                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_BLUETOOTHID, inputData, id);
-                break;
-            case DB_Data.TABLE_REWARD_INFO:
-                result = dbManager.update_data_toDB(DB_Data.TABLE_REWARD_INFO, inputData, id);
-                break;
-            case DB_Data.TABLE_DATA_INFO:
-                result = dbManager.update_data_toDB(DB_Data.TABLE_DATA_INFO, inputData, id);
-                break;
-        }
-
-        return result;
-    }
-
-    public String UpdateDataInTable(int tableName, ListItem inputDatas, String id) {
-        String result = "";
-        String inputData = "";
-        for (int i = 0; i < inputDatas.length(); i++) {
-            if (i != 0)
-                inputData += "\t";
-            inputData += inputDatas.getData(i);
-        }
-
-        switch (tableName) {
-            case DB_Data.TABLE_USER_INFO:
-                result = dbManager.update_data_toDB(DB_Data.TABLE_USER_INFO, inputData, id);
-                break;
-            case DB_Data.TABLE_CHILD_INFO:
-                // Update문 - 아이 이름, 사진 uri 변경
-                if (inputDatas.length() == 2)
-                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_NAME, inputData, id);
-                    // Update문 - 블루투스 id, 닉네임, 캐릭터  (태블릿이 블루투스 모드일 경우)
-                else if (inputDatas.length() == 3)
-                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_BLUETOOTHID, inputData, id);
-                break;
-            case DB_Data.TABLE_REWARD_INFO:
-                result = dbManager.update_data_toDB(DB_Data.TABLE_REWARD_INFO, inputData, id);
-                break;
-            case DB_Data.TABLE_DATA_INFO:
-                result = dbManager.update_data_toDB(DB_Data.TABLE_DATA_INFO, inputData, id);
-                break;
-        }
-
-        return result;
-    }
-
     public String InsertDataInTable(int tableName, String[] inputDatas) {
         String result = "";
         String inputData = "";
@@ -631,6 +564,97 @@ public class VerifyUserInfo extends Application {
                 break;
             case DB_Data.TABLE_DATA_INFO:
                 result = dbManager.insert_data_toDB(DB_Data.TABLE_DATA_INFO, inputData);
+                break;
+        }
+
+        return result;
+    }
+
+    public String UpdateDataInTable(int tableName, String[] inputDatas, String id) {
+        String result = "";
+        String inputData = "";
+        for (int i = 0; i < inputDatas.length; i++) {
+            if (i != 0)
+                inputData += "\t";
+            inputData += inputDatas[i];
+        }
+
+        switch (tableName) {
+            case DB_Data.TABLE_USER_INFO:
+                result = dbManager.update_data_toDB(DB_Data.TABLE_USER_INFO, inputData, id);
+                break;
+            case DB_Data.TABLE_CHILD_INFO:
+                // Update문 - 연결 방식 저장 (블루투스)
+                if(inputDatas.length == 1)
+                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_NAME, inputData, id);
+                    // Update문 - 아이 이름, 사진 uri, 배경 사진 uri 변경
+                else if (inputDatas.length == 3)
+                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_NAME, inputData, id);
+                // Update문 - 블루투스 id, 닉네임, 캐릭터  (태블릿이 블루투스 모드일 경우)
+//                else if (inputDatas.length == 3)
+//                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_BLUETOOTHID, inputData, id);
+                break;
+            case DB_Data.TABLE_REWARD_INFO:
+                result = dbManager.update_data_toDB(DB_Data.TABLE_REWARD_INFO, inputData, id);
+                break;
+            case DB_Data.TABLE_DATA_INFO:
+                result = dbManager.update_data_toDB(DB_Data.TABLE_DATA_INFO, inputData, id);
+                break;
+        }
+
+        return result;
+    }
+
+    public String UpdateDataInTable(int tableName, ListItem inputDatas, String id) {
+        String result = "";
+        String inputData = "";
+        for (int i = 0; i < inputDatas.length(); i++) {
+            if (i != 0)
+                inputData += "\t";
+            inputData += inputDatas.getData(i);
+        }
+
+        switch (tableName) {
+            case DB_Data.TABLE_USER_INFO:
+                result = dbManager.update_data_toDB(DB_Data.TABLE_USER_INFO, inputData, id);
+                break;
+            case DB_Data.TABLE_CHILD_INFO:
+                // Update문 - 아이 이름, 사진 uri 변경
+                if (inputDatas.length() == 2)
+                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_NAME, inputData, id);
+                    // Update문 - 블루투스 id, 닉네임, 캐릭터  (태블릿이 블루투스 모드일 경우)
+                else if (inputDatas.length() == 3)
+                    result = dbManager.update_data_toDB(DB_Data.TABLE_CHILD_INFO_BLUETOOTHID, inputData, id);
+                break;
+            case DB_Data.TABLE_REWARD_INFO:
+                result = dbManager.update_data_toDB(DB_Data.TABLE_REWARD_INFO, inputData, id);
+                break;
+            case DB_Data.TABLE_DATA_INFO:
+                result = dbManager.update_data_toDB(DB_Data.TABLE_DATA_INFO, inputData, id);
+                break;
+        }
+
+        return result;
+    }
+
+    public String DeleteDataInTable(int tableName, String[] inputDatas, String id) {
+        String result = "";
+        String inputData = "";
+        for (int i = 0; i < inputDatas.length; i++) {
+            if (i != 0)
+                inputData += "\t";
+            inputData += inputDatas[i];
+        }
+
+        switch (tableName) {
+            case DB_Data.TABLE_USER_INFO:
+                break;
+            case DB_Data.TABLE_CHILD_INFO:
+                break;
+            case DB_Data.TABLE_REWARD_INFO:
+                result = dbManager.delete_data_toDB(DB_Data.TABLE_REWARD_INFO, inputData, id);
+                break;
+            case DB_Data.TABLE_DATA_INFO:
                 break;
         }
 
@@ -744,7 +768,8 @@ public class VerifyUserInfo extends Application {
         }
         // 등록된 아이 사진이 없을 경우
         else{
-            imageView.setImageDrawable(getDrawable(R.drawable.home_child_photo));
+            imageView.setImageBitmap(null);
+            imageView.setImageDrawable(getDrawable(R.drawable.home_child_photo1));
         }
         return retval;
     }
@@ -769,11 +794,14 @@ public class VerifyUserInfo extends Application {
                 imageView.setVisibility(View.VISIBLE);
                 imageView.setImageBitmap(null);
                 imageView.setImageBitmap(bitmap);
+                imageView.setAdjustViewBounds(true);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 retval = true;
             }
         }
         // 등록된 아이 사진이 없을 경우
         else{
+            imageView.setImageBitmap(null);
             imageView.setBackground(getDrawable(R.drawable.home_child_background1));
         }
         return retval;

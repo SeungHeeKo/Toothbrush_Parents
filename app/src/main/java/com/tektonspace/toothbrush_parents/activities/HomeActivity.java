@@ -43,14 +43,14 @@ import java.util.ArrayList;
 public class HomeActivity extends BaseActivity {
     public static HomeActivity homeActivity;
     // 새로고침 버튼
-            Button home_refresh_button;
+    Button home_refresh_button;
     // 타이틀바 버튼
     Button titlebar_button_instruction, titlebar_button_teachbrush;
 
-    // 사용자의 아이디, 비밀번호 정보가 저장된 intent
-    Intent intent_fromMainOrCreateAccountActivity;
-    // 사용자의 아이디, 비밀번호 저장
-    public String userID = "", password = "";
+    // 사용자의 아이디, 비밀번호, 아이 index 정보가 저장된 intent
+    Intent intent_fromMainOrCreateAccountOrEditActivity;
+    // 사용자의 아이디, 비밀번호, 아이 index 저장
+    public String userID = "", password = "", childID = "";
 
     // Fragment
     FragmentManager fragmentManager;
@@ -58,6 +58,7 @@ public class HomeActivity extends BaseActivity {
     ChildSelectFragment childSelectFragment;
 
     boolean isChildExists = false;
+    boolean ifChildPhotoExist = false;
 
     ArrayList<ListItem> userInfo, childInfo;
     VerifyUserInfo verifyUserInfo;
@@ -106,9 +107,10 @@ public class HomeActivity extends BaseActivity {
         userInfo = new ArrayList<ListItem>();
         userInfo = verifyUserInfo.getUserData();
 
-        intent_fromMainOrCreateAccountActivity = getIntent();
-        userID = intent_fromMainOrCreateAccountActivity.getStringExtra(DB_Data.STRING_USER_ID);
-        password = intent_fromMainOrCreateAccountActivity.getStringExtra(DB_Data.STRING_USER_PASSWORD);
+        intent_fromMainOrCreateAccountOrEditActivity = getIntent();
+        userID = intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_USER_ID);
+        password = intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_USER_PASSWORD);
+        childID = intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_CHILD_ID);
 
         if (TextUtils.isEmpty(userID))
             userID = verifyUserInfo.getUserID();
@@ -316,7 +318,7 @@ public class HomeActivity extends BaseActivity {
             }
             // 태블릿과 처음 블루투스 연결하는 경우, 부모앱쪽에서 블루투스 기기를 검색해 태블릿과 연결하고 태블릿에서 정보 수신함
             else {
-                if(isButtonPressed){
+                if (isButtonPressed) {
                     Toast.makeText(this, "생성된 아이의 정보가 없습니다.", Toast.LENGTH_SHORT).show();
 
                     Intent serverIntent = new Intent(this, DeviceListActivity.class);
@@ -334,6 +336,15 @@ public class HomeActivity extends BaseActivity {
     private void ChangeFragment() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         childSelectFragment = new ChildSelectFragment();
+        // 편집화면에서 이동된 경우, 방금 편집된 아이의 정보가 메인에 나타나도록 함
+        if(!TextUtils.isEmpty(childID)){
+            Bundle bundle = new Bundle();
+            bundle.putString(DB_Data.STRING_CHILD_NAME, intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_CHILD_NAME));
+            bundle.putString(DB_Data.STRING_CHILD_ID, intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_CHILD_ID));
+            bundle.putString(DB_Data.STRING_CHILD_BACKGROUNDPHOTO, intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_CHILD_BACKGROUNDPHOTO));
+            bundle.putString(DB_Data.STRING_CHILD_PHOTO, intent_fromMainOrCreateAccountOrEditActivity.getStringExtra(DB_Data.STRING_CHILD_PHOTO));
+            childSelectFragment.setArguments(bundle);
+        }
         fragmentTransaction.replace(R.id.fragment_child_select, childSelectFragment, DB_Data.STRING_FRAGMENT);
         fragmentTransaction.commit();
     }
@@ -346,17 +357,6 @@ public class HomeActivity extends BaseActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.home_child_edit_button:
-                    // 아이 정보 편집 화면으로 전환
-                    Intent intentToEdit = new Intent(HomeActivity.this, ChildEditActivity.class);
-                    startActivity(intentToEdit);
-                    break;
-                case R.id.home_data_button:
-                    // 양치 습관 확인 화면으로 이동
-                    break;
-                case R.id.home_reward_button:
-                    // 보상 설정 화면으로 이동
-                    break;
                 case R.id.home_refresh_button:
                     IfChildExists_ChangeFragment(true);
                     break;

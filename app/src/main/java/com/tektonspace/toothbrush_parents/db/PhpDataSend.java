@@ -86,6 +86,9 @@ public class PhpDataSend extends AsyncTask<String, Void, String> {
                     else if (datas[1].contains("reset")) {
                         param = "ChildID=" + datas[2];
                     }
+                    else if(datas[1].contains("delete")){
+                        param = "ChildID=" + datas[2];
+                    }
                     // Update문_정보 변경
                     else {
                         param = "Reward_detail=" + sendingData.get(0) + "&Reward_total=" + sendingData.get(1) + "&ChildID=" + datas[2];

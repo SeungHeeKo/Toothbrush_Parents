@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/reward_background"
+    android:background="@drawable/background_darkblue"
     android:descendantFocusability="blocksDescendants">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
@@ -15,48 +15,351 @@
         sl:scale_base_height="2700"
         sl:scale_base_width="1800">
 
-<!--reward content-->
+
+        <!--child-->
+
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+
+            android:id="@+id/reward_child_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/data_child_background"
+            sl:scale_height="750"
+            sl:scale_top="262"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="750"
+                sl:scale_base_width="1800">
+
+                <!--background photo-->
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/reward_background_photo_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/childedit_background"
+                    sl:scale_height="750"
+                    sl:scale_width="1800">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="750"
+                        sl:scale_base_width="1800">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            sl:srcCompat="@drawable/childedit_background"
+                            android:id="@+id/reward_background_photo_imageView"
+                            sl:scale_height="750"
+                            sl:scale_width="1800" />
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+
+                <!--child photo-->
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/reward_childPhoto_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    sl:scale_height="360"
+                    sl:scale_top="150"
+                    sl:scale_width="360">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="360"
+                        sl:scale_base_width="360">
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/reward_childPhoto_imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            sl:scale_height="360"
+                            sl:scale_width="360"
+                            sl:srcCompat="@drawable/home_child_photo1"
+                            app:civ_border="false"
+                            app:civ_shadow="true"
+                            app:civ_shadow_color="@android:color/transparent"
+                            app:civ_shadow_radius="2"/>
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+
+                <!--child name-->
+                <TextView
+                    android:id="@+id/reward_childName_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:letterSpacing="0.6"
+                    android:lineSpacingExtra="8dip"
+                    android:text="@string/none_childName"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    sl:scale_height="100"
+                    sl:scale_textsize="65"
+                    sl:scale_top="550"
+                    sl:scale_width="400"  />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
+
+        <!--reward content-->
         <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
             android:id="@+id/reward_content_num_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            sl:scale_top="650"
-            sl:scale_height="1800"
+            sl:scale_top="1000"
+            sl:scale_height="1426"
             sl:scale_width="1800">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                sl:scale_base_height="1800"
+                sl:scale_base_height="1426"
                 sl:scale_base_width="1800">
 
-
-                <ImageView
+                <!--character, today data-->
+                <RelativeLayout
+                    android:id="@+id/reward_data_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    sl:srcCompat="@drawable/reward_detail_background1"
-                    android:id="@+id/imageView2"
-                    sl:scale_height="1600"
-                    sl:scale_width="1553" />
+                    android:background="@drawable/background_darkblue"
+                    sl:scale_top="10"
+                    sl:scale_height="262"
+                    sl:scale_width="1800">
 
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="262"
+                        sl:scale_base_width="1800">
+
+                        <!--character-->
+                        <RelativeLayout
+                            android:id="@+id/reward_character_data_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/home_character_frame"
+                            sl:scale_left="200"
+                            sl:scale_height="150"
+                            sl:scale_width="581">
+
+                            <com.ssomai.android.scalablelayout.ScalableLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                sl:scale_base_height="150"
+                                sl:scale_base_width="581">
+
+                                <TextView
+                                    android:text="chi chi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/reward_character_textView"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    sl:scale_textsize="75"
+                                    sl:scale_left="150"
+                                    sl:scale_height="157"
+                                    sl:scale_width="400"  />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    sl:srcCompat="@drawable/chichi_icon"
+                                    android:id="@+id/reward_character_imageView"
+                                    sl:scale_left="20"
+                                    sl:scale_height="130"
+                                    sl:scale_width="130" />
+                            </com.ssomai.android.scalablelayout.ScalableLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/reward_toothbrush_data_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/home_toothbrush_frame"
+                            sl:scale_left="950"
+                            sl:scale_height="150"
+                            sl:scale_width="682">
+
+                            <com.ssomai.android.scalablelayout.ScalableLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                sl:scale_base_height="150"
+                                sl:scale_base_width="682">
+
+
+                                <TextView
+                                    android:text="@string/today"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    sl:scale_textsize="55"
+                                    sl:scale_left="40"
+                                    sl:scale_height="157"
+                                    sl:scale_width="200"  />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    sl:srcCompat="@drawable/toothbrush_on1"
+                                    android:id="@+id/reward_toothbrush_morning_imageView"
+                                    sl:scale_left="250"
+                                    sl:scale_height="112"
+                                    sl:scale_width="112" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    sl:srcCompat="@drawable/toothbrush_off1"
+                                    android:id="@+id/reward_toothbrush_afternoon_imageView"
+                                    sl:scale_left="390"
+                                    sl:scale_height="112"
+                                    sl:scale_width="112" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    sl:srcCompat="@drawable/toothbrush_on1"
+                                    android:id="@+id/reward_toothbrush_evening_imageView"
+                                    sl:scale_left="530"
+                                    sl:scale_height="112"
+                                    sl:scale_width="112" />
+                            </com.ssomai.android.scalablelayout.ScalableLayout>
+                        </RelativeLayout>
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/reward_detail_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    sl:scale_top="262"
+                    sl:scale_height="1164"
+                    sl:scale_width="1800">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        sl:scale_base_height="1164"
+                        sl:scale_base_width="1800">
+                <!--보상 트로피-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    sl:srcCompat="@drawable/reward_detail_background"
+                    android:id="@+id/reward_detail_imageView"
+                    sl:scale_height="1000"
+                    sl:scale_width="1114" />
+
+                <!--reward num-->
+                <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/reward_num_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    sl:scale_top="400"
+                    sl:scale_height="200"
+                    sl:scale_width="300">
+
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        sl:scale_base_height="200"
+                        sl:scale_base_width="300">
+
+
+                        <TextView
+                            android:id="@+id/reward_divider_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical"
+                            android:text=" / "
+                            android:textColor="#ffa600"
+                            android:textAlignment="center"
+                            sl:scale_textsize="65"
+                            sl:scale_height="200"
+                            sl:scale_width="100" />
+
+                        <TextView
+                            android:id="@+id/reward_rewardNum_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="10"
+                            android:textColor="#ffa600"
+                            android:textAlignment="center"
+                            sl:scale_textsize="65"
+                            sl:scale_left="120"
+                            sl:scale_height="200"
+                            sl:scale_width="200" />
+
+                        <TextView
+                            android:id="@+id/reward_totalNum_textView"
+                            android:layout_width="43dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="\?"
+                            android:textColor="#ffa600"
+                            android:textAlignment="center"
+                            sl:scale_textsize="65"
+                            sl:scale_left="0"
+                            sl:scale_height="200"
+                            sl:scale_width="200" />
+
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+                <!--reward detail-->
                 <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
             android:id="@+id/reward_content_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            sl:scale_top="350"
-            sl:scale_height="782"
-            sl:scale_width="760">
+            sl:scale_top="200"
+            sl:scale_height="250"
+            sl:scale_width="550">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                sl:scale_base_height="782"
-                sl:scale_base_width="760"
+                sl:scale_base_height="250"
+                sl:scale_base_width="550"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true">
 
@@ -69,92 +372,46 @@
             android:text="초콜릿"
             android:textColor="#FFFFFF"
             android:textAlignment="center"
-            android:paddingRight="15dp"
-            sl:scale_left="50"
-            sl:scale_top="20"
-            sl:scale_textsize="200"
-            sl:scale_height="400"
-            sl:scale_width="1400" />
+            sl:scale_textsize="100"
+            sl:scale_height="250"
+            sl:scale_width="550" />
 </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
-            </com.ssomai.android.scalablelayout.ScalableLayout>
-        </RelativeLayout>
-<!--reward num-->
-        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/reward_num_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            sl:scale_top="1220"
-            sl:scale_height="204"
-            sl:scale_width="681">
-
-            <com.ssomai.android.scalablelayout.ScalableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                sl:scale_base_height="204"
-                sl:scale_base_width="681">
-
-
-                <TextView
-            android:id="@+id/reward_divider_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_vertical"
-            android:text=" / "
-            android:textColor="#ffa600"
-            android:textAlignment="center"
-            sl:scale_textsize="100"
-            sl:scale_height="200"
-            sl:scale_width="100" />
-
-                <TextView
-                    android:id="@+id/reward_rewardNum_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="10"
-                    android:textColor="#ffa600"
-                    android:textAlignment="center"
-                    sl:scale_textsize="100"
-                    sl:scale_left="340"
-                    sl:scale_height="200"
-                    sl:scale_width="200" />
-
-                <TextView
-                    android:id="@+id/reward_totalNum_textView"
-                    android:layout_width="43dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="\?"
-                    android:textColor="#ffa600"
-                    android:textAlignment="center"
-                    sl:scale_textsize="100"
-                    sl:scale_left="150"
-                    sl:scale_height="200"
-                    sl:scale_width="200" />
-
+                        </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
 <!--보상 설정 버튼-->
         <Button
             android:id="@+id/reward_setting_button"
-            android:background="@drawable/childdetail_toothbrushdata_background1"
+            android:background="@drawable/titlebar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="#FFFFFF"
             android:text="보상 설정하기"
-            sl:scale_textsize="75"
-            sl:scale_height="296"
-            sl:scale_top="2420"
-            sl:scale_width="1800" />
-<!--title-->
+            android:textColor="#FFFFFF"
+            sl:scale_textsize="65"
+            sl:scale_top="2438"
+            sl:scale_height="262"
+            sl:scale_width="1800"/>
+        <!--title-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toothbrush_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/titlebar"
+            sl:scale_height="262"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="262"
+                sl:scale_base_width="1800">
+
                 <TextView
-                    android:background="@drawable/childdetail_title_background"
-                    android:id="@+id/reward_title_textView"
+                    android:id="@+id/toothbrush_title_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -162,10 +419,14 @@
                     android:text="@string/title_child_reward"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:paddingBottom="15dp"
+                    sl:scale_left="20"
+                    sl:scale_height="262"
                     sl:scale_textsize="75"
-                    sl:scale_height="412"
                     sl:scale_width="1800" />
+
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
 
         <!--뒤로가기, 홈버튼, 조작방법설명, 폰즈법(올바른양치질)설명-->
         <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
@@ -188,7 +449,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_button_back1"
+                    android:background="@drawable/titlebar_button_back"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_back"
                     android:alpha=".7"
@@ -198,7 +459,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_button_home1"
+                    android:background="@drawable/titlebar_button_home"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_home"
                     android:alpha=".7"
@@ -208,17 +469,17 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_instruction"
+                    android:background="@drawable/titlebar_instruction1"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_instruction"
                     android:alpha=".7"
-                    sl:scale_left="1320"
+                    sl:scale_left="1330"
                     sl:scale_width="130"
                     sl:scale_height="130"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_teachbrush"
+                    android:background="@drawable/titlebar_teachbrush1"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_teachbrush"
                     android:alpha=".7"
@@ -227,6 +488,5 @@
                     sl:scale_height="130"/>
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
-
     </com.ssomai.android.scalablelayout.ScalableLayout>
 </FrameLayout>

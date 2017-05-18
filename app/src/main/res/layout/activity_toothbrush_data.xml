@@ -6,7 +6,7 @@
     android:id="@+id/activity_toothbrush_data"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/orange_background"
+    android:background="@drawable/background_darkblue"
     tools:context="com.tektonspace.toothbrush_parents.activities.ToothbrushDataActivity">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
@@ -23,17 +23,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/data_kid_box1"
-        sl:scale_height="954"
-        sl:scale_top="450"
-        sl:scale_width="1500">
+        android:background="@drawable/data_child_background"
+        sl:scale_height="750"
+        sl:scale_top="262"
+        sl:scale_width="1800">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        sl:scale_base_height="954"
-        sl:scale_base_width="1500">
+        sl:scale_base_height="750"
+        sl:scale_base_width="1800">
 
         <!--child photo-->
     <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
@@ -41,26 +41,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-            android:background="@drawable/childselect_photo_frame1"
-            sl:scale_height="318"
-            sl:scale_top="100"
-            sl:scale_width="318">
+            sl:scale_height="360"
+            sl:scale_top="150"
+            sl:scale_width="360">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                sl:scale_base_height="318"
-                sl:scale_base_width="318">
+                sl:scale_base_height="360"
+                sl:scale_base_width="360">
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/toothbrush_childPhoto_imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    sl:scale_top="5"
-                    sl:scale_left="20"
-                    sl:scale_height="284"
-                    sl:scale_width="284"
-                    sl:srcCompat="@drawable/childselect_photo_frame_none"
+                    sl:scale_height="360"
+                    sl:scale_width="360"
+                    sl:srcCompat="@drawable/home_child_photo1"
                     app:civ_border="false"
                     app:civ_shadow="true"
                     app:civ_shadow_color="@android:color/transparent"
@@ -73,54 +70,17 @@
             android:id="@+id/toothbrush_childName_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/data_name"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:letterSpacing="0.6"
             android:lineSpacingExtra="8dip"
             android:text="@string/none_childName"
             android:textAlignment="center"
-            android:textColor="#1c6c86"
-            sl:scale_height="189"
-            sl:scale_textsize="80"
-            sl:scale_top="430"
-            sl:scale_width="532" />
-        <!--left button-->
-        <Button
-            android:id="@+id/toothbrush_calendar_left_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/data_button_left"
-            sl:scale_height="135"
-            sl:scale_left="300"
-            sl:scale_top="720"
-            sl:scale_width="117" />
-        <!--calendar-->
-        <Button
-            android:id="@+id/toothbrush_calendar_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:text="4월 1주차"
-            android:textAlignment="center"
             android:textColor="#FFFFFF"
-            sl:scale_height="200"
-            sl:scale_textsize="70"
-            sl:scale_top="700"
-            sl:scale_width="600" />
-
-        <!--right button-->
-        <Button
-            android:id="@+id/toothbrush_calendar_right_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/data_button_right"
-            sl:scale_height="135"
-            sl:scale_left="1050"
-            sl:scale_top="720"
-            sl:scale_width="117" />
+            sl:scale_height="100"
+            sl:scale_textsize="65"
+            sl:scale_top="550"
+            sl:scale_width="400"  />
         </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
 
@@ -131,17 +91,54 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            sl:scale_height="1300"
-            sl:scale_top="1400"
-            sl:scale_width="1700">
+            android:background="@drawable/data_data_background"
+            sl:scale_height="1725"
+            sl:scale_top="1012"
+            sl:scale_width="1800">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                sl:scale_base_height="1300"
-                sl:scale_base_width="1700">
+                sl:scale_base_height="1725"
+                sl:scale_base_width="1800">
 
+                <!--left button-->
+                <Button
+                    android:id="@+id/toothbrush_calendar_left_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/data_button_left1"
+                    sl:scale_height="100"
+                    sl:scale_left="300"
+                    sl:scale_top="80"
+                    sl:scale_width="100" />
+                <!--calendar-->
+                <Button
+                    android:id="@+id/toothbrush_calendar_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:text="4월 1주차"
+                    android:textAlignment="center"
+                    android:textColor="#ffa600"
+                    sl:scale_height="100"
+                    sl:scale_textsize="70"
+                    sl:scale_top="80"
+                    sl:scale_width="600" />
+
+                <!--right button-->
+                <Button
+                    android:id="@+id/toothbrush_calendar_right_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/data_button_right1"
+                    sl:scale_height="100"
+                    sl:scale_left="1400"
+                    sl:scale_top="80"
+                    sl:scale_width="100" />
                 <ListView
                     android:id="@+id/toothbrush_data_listView"
                     android:layout_width="match_parent"
@@ -151,8 +148,9 @@
                     android:background="@android:color/transparent"
                     android:layout_weight="1"
                     android:divider="@android:color/transparent"
-                    sl:scale_height="1300"
-                    sl:scale_width="1700"/>
+                    sl:scale_top="250"
+                    sl:scale_height="1190"
+                    sl:scale_width="1800"/>
                 </com.ssomai.android.scalablelayout.ScalableLayout>
         </FrameLayout>
 <!--title-->
@@ -160,15 +158,15 @@
             android:id="@+id/toothbrush_title_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/childdetail_title_background"
-            sl:scale_height="412"
+            android:background="@drawable/titlebar"
+            sl:scale_height="262"
             sl:scale_width="1800">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                sl:scale_base_height="412"
+                sl:scale_base_height="262"
                 sl:scale_base_width="1800">
 
                 <TextView
@@ -177,27 +175,29 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
-                    android:paddingBottom="35dp"
                     android:text="@string/title_toothbrush_data"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     sl:scale_left="20"
-                    sl:scale_height="500"
+                    sl:scale_height="262"
                     sl:scale_textsize="75"
-                    sl:scale_width="800" />
+                    sl:scale_width="1800" />
 
-                <!--맨 밑 하단으로 이동-->
-                <Button
-                    android:id="@+id/toothbrush_setting_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/childdetail_setting_button1"
-                    sl:scale_height="196"
-                    sl:scale_left="1400"
-                    sl:scale_top="80"
-                    sl:scale_width="196" />
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
+
+        <!--시간 설정 버튼-->
+        <Button
+            android:id="@+id/toothbrush_setting_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_setting_toothbrush"
+            android:background="@drawable/titlebar"
+            android:textColor="#FFFFFF"
+            sl:scale_textsize="65"
+            sl:scale_top="2438"
+            sl:scale_height="262"
+            sl:scale_width="1800"/>
 
         <!--뒤로가기, 홈버튼, 조작방법설명, 폰즈법(올바른양치질)설명-->
         <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
@@ -220,7 +220,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_button_back1"
+                    android:background="@drawable/titlebar_button_back"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_back"
                     android:alpha=".7"
@@ -230,7 +230,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_button_home1"
+                    android:background="@drawable/titlebar_button_home"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_home"
                     android:alpha=".7"
@@ -240,17 +240,17 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_instruction"
+                    android:background="@drawable/titlebar_instruction1"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_instruction"
                     android:alpha=".7"
-                    sl:scale_left="1320"
+                    sl:scale_left="1330"
                     sl:scale_width="130"
                     sl:scale_height="130"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_teachbrush"
+                    android:background="@drawable/titlebar_teachbrush1"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_teachbrush"
                     android:alpha=".7"

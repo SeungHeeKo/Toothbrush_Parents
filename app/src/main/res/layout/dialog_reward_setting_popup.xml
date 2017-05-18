@@ -14,7 +14,7 @@
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:sl="http://schemas.android.com/apk/res-auto"
-            android:background="@drawable/popup_reward_background1"
+            android:background="@drawable/popup_reward_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -33,7 +33,26 @@
                 android:layout_alignParentStart="true">
 
 
+<!--횟수 설정-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    sl:scale_top="380"
+                    sl:scale_width="1330"
+                    sl:scale_height="320"
+                    >
 
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        sl:scale_base_height="320"
+                        sl:scale_base_width="1330"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true">
                 <TextView
                     android:text="횟수 설정"
                     android:layout_width="wrap_content"
@@ -43,19 +62,19 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     sl:scale_textsize="65"
-                    sl:scale_top="390"
+                    sl:scale_top="20"
                     sl:scale_width="500"
                     sl:scale_height="150" />
 
                 <Button
-                    android:background="@drawable/popup_reward_left_arrow"
+                    android:background="@drawable/popup_reward_left1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/reward_num_left_button"
-                    sl:scale_top="520"
+                    sl:scale_top="150"
                     sl:scale_left="300"
-                    sl:scale_width="117"
-                    sl:scale_height="135"  />
+                    sl:scale_width="100"
+                    sl:scale_height="115"  />
 
                 <EditText
                     android:background="@android:color/transparent"
@@ -69,49 +88,42 @@
                     android:textAlignment="center"
                     android:textColor="#ffffff"
                     sl:scale_textsize="70"
-                    sl:scale_top="500"
-                    sl:scale_width="300"
-                    sl:scale_height="200"  />
+                    sl:scale_top="150"
+                    sl:scale_width="150"
+                    sl:scale_height="115"  />
 
                 <Button
-                    android:background="@drawable/popup_reward_right_arrow"
+                    android:background="@drawable/popup_reward_right1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/reward_num_right_button"
-                    sl:scale_top="520"
-                    sl:scale_left="900"
-                    sl:scale_width="117"
-                    sl:scale_height="135" />
+                    sl:scale_top="150"
+                    sl:scale_left="930"
+                    sl:scale_width="100"
+                    sl:scale_height="115" />
+</com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
 
-
-
-                <TextView
-                    android:text="누적 횟수 초기화"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/reward_totalNum_reset_textView"
+                <!--선물 설정-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="#FFFFFF"
-                    android:textAlignment="center"
-                    sl:scale_textsize="65"
-                    sl:scale_top="800"
-                    sl:scale_width="800"
-                    sl:scale_height="150" />
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    sl:scale_top="700"
+                    sl:scale_width="1330"
+                    sl:scale_height="500"
+                    >
 
-                <Button
-                    android:text="초기화"
-                    android:background="@drawable/popup_reward_button_reset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/reward_totalNum_reset_button"
-                    android:textAlignment="center"
-                    sl:scale_textsize="65"
-                    sl:scale_top="950"
-                    sl:scale_width="680"
-                    sl:scale_height="140"  />
-
-
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        sl:scale_base_height="500"
+                        sl:scale_base_width="1330"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true">
                 <TextView
                     android:text="선물 설정"
                     android:layout_width="wrap_content"
@@ -121,27 +133,92 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     sl:scale_textsize="65"
-                    sl:scale_top="1300"
+                    sl:scale_top="90"
                     sl:scale_width="800"
-                    sl:scale_height="150" />
+                    sl:scale_height="123" />
 
                 <EditText
                     android:text="초콜릿"
-                    android:background="@drawable/popup_reward_button_reset"
+                    android:background="@drawable/popup_reward_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/reward_content_editText"
                     android:layout_gravity="center_horizontal"
                     android:textAlignment="center"
                     android:imeOptions="actionDone"
-                    android:maxLength="10"
+                    android:maxLength="15"
                     android:singleLine="true"
+                    android:textColor="#FFFFFF"
                     sl:scale_textsize="65"
-                    sl:scale_top="1440"
-                    sl:scale_width="680"
-                    sl:scale_height="140"  />
+                    sl:scale_top="220"
+                    sl:scale_width="1066"
+                    sl:scale_height="182"  />
+</com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
 
+                <!--누적횟수 초기화-->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:sl="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    sl:scale_top="1200"
+                    sl:scale_width="1330"
+                    sl:scale_height="480"
+                    >
 
+                    <com.ssomai.android.scalablelayout.ScalableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        sl:scale_base_height="480"
+                        sl:scale_base_width="1330"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true">
+                        <TextView
+                            android:text="누적 횟수 초기화"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reward_totalNum_reset_textView"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="#FFFFFF"
+                            android:textAlignment="center"
+                            sl:scale_textsize="65"
+                            sl:scale_top="80"
+                            sl:scale_width="800"
+                            sl:scale_height="123" />
+
+                        <Button
+                            android:text="@string/button_reward_reset"
+                            android:background="@drawable/popup_reward_button_reset1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reward_totalNum_reset_button"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_textsize="60"
+                            sl:scale_left="150"
+                            sl:scale_top="210"
+                            sl:scale_width="486"
+                            sl:scale_height="182"  />
+
+                        <Button
+                            android:text="@string/button_reward_stop"
+                            android:background="@drawable/popup_reward_button_reset1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reward_stop_reward_button"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            sl:scale_textsize="60"
+                            sl:scale_left="730"
+                            sl:scale_top="210"
+                            sl:scale_width="486"
+                            sl:scale_height="182"  />
+                    </com.ssomai.android.scalablelayout.ScalableLayout>
+                </RelativeLayout>
+<!--확인, 취소 버튼-->
                 <Button
                     android:text="@string/button_ok"
                     android:background="@drawable/popup_reward_button_ok_cancel_background1"

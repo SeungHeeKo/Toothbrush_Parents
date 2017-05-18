@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public interface DB_Data {
     // ToothbrushData DB 접속 IP
-    public final String publicIP = "http://13.124.129.180/";
+    public final String publicIP = "http://52.79.107.26/";
 
     // 각 테이블별 접근 int변수
     public static final int TABLE_USER_INFO = 10;
@@ -72,7 +72,9 @@ public interface DB_Data {
     public static final int POPUP_INSTRUCTION_BLUETOOTH = 5;
     public static final int POPUP_REWARD_SETTING = 6;
     public static final int POPUP_REWARD_SETTING_RESET = 7;
-    public static final int POPUP_DATA_SETTING = 8;
+    public static final int POPUP_REWARD_SETTING_NONE = 8;
+    public static final int POPUP_REWARD_SETTING_STOP = 9;
+    public static final int POPUP_DATA_SETTING = 10;
 
 
     // 생성된 계정 정보를 UserInfo 테이블에 저장할 도메인 주소
@@ -83,6 +85,7 @@ public interface DB_Data {
     public final String URL_INSERT_CHILDINFO = publicIP + "insert_childInfo.php";
     // 보상 정보를 RewardInfo 테이블에 저장할 도메인 주소
     public final String URL_INSERT_REWARDINFO = publicIP + "insert_rewardInfo.php";
+
     // UserInfo 테이블에 존재하는 값 전체를 받아오는 도메인 주소
     public final String URL_GET_USERINFO = publicIP + "get_userInfo.php";
     // UserInfo 테이블에 존재하는 값 전체를 받아오는 도메인 주소
@@ -112,6 +115,9 @@ public interface DB_Data {
     public final String URL_UPDATE_RESET_REWARDINFO = publicIP + "update_reset_rewardInfo.php";
     // RewardInfo 테이블의 보상 내용, 총 보상 횟수 변경
     public final String URL_UPDATE_REWARDINFO = publicIP + "update_rewardInfo.php";
+
+    // RewardInfo 테이블에 존재하는 특정 값 삭제
+    public final String URL_DELETE_REWARDINFO = publicIP + "delete_rewardInfo.php";
 
     public final String DATA_CORRECT = "DATA_CORRECT";
 

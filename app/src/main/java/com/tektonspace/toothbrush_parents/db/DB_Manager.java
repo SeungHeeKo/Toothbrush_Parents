@@ -167,6 +167,35 @@ public class DB_Manager{
     }
 
 
+    public String delete_data_toDB(int tableName, String sendData, String id){
+        switch (tableName) {
+            case DB_Data.TABLE_USER_INFO:
+//                    urlPath = DB_Data.URL_UPDATE_USERINFO_PASSWORD;
+                break;
+            case DB_Data.TABLE_CHILD_INFO_NAME:
+//                urlPath = DB_Data.URL_UPDATE_CHILDINFO_NAME;
+                break;
+            case DB_Data.TABLE_CHILD_INFO_BLUETOOTHID:
+//                urlPath = DB_Data.URL_UPDATE_CHILDINFO_BLUETOOTHID;
+                break;
+            case DB_Data.TABLE_REWARD_INFO:
+                    urlPath = DB_Data.URL_DELETE_REWARDINFO;
+                break;
+            case DB_Data.TABLE_DATA_INFO:
+                break;
+        }
+
+        try {
+            results = new PhpDataSend().execute(urlPath, sendData, id).get();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        }
+        return results;
+    }
+
+
     // 각 테이블별 인덱스값 반환
     public String GetTableIndex(int tableNum, int indexNum) {
         String indexString = "";

@@ -9,6 +9,7 @@ import android.widget.TextView;
  */
 
 public class ToothbrushDataListViewItem {
+    private String monthDay;
     private Drawable morningData, afternoonData, eveningData;
 
     public Drawable getMorningData(){
@@ -20,6 +21,7 @@ public class ToothbrushDataListViewItem {
     public Drawable getEveningData(){
         return eveningData;
     }
+    public String getMonthDay() {return monthDay;}
 
     public void setMorningData(Drawable morningData){
         this.morningData = morningData;
@@ -30,6 +32,7 @@ public class ToothbrushDataListViewItem {
     public void setEveningData(Drawable eveningData){
         this.eveningData = eveningData;
     }
+    public void setMonthDay(String strings){this.monthDay = strings;}
 
 
 

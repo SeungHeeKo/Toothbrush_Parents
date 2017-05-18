@@ -71,12 +71,15 @@ public class ToothbrushDataActivity extends AppCompatActivity {
     int morningResult, afternoonResult, eveningResult;
     int[] timeCondition = new int[12];
     int[] settingTime = new int[6];
+    String[] currOneDate = new String[7];
 
     boolean morningDone = false, afternoonDone = false, eveningDone = false;
     RelativeLayout toothbrush_layout;
     ImageView toothbrush_childPhoto_imageView;
     TextView toothbrush_childName_textView;
     Button toothbrush_setting_button, toothbrush_calendar_left_button, toothbrush_calendar_button, toothbrush_calendar_right_button, titlebar_button_back, titlebar_button_home;
+    // 타이틀바 버튼
+    Button titlebar_button_instruction, titlebar_button_teachbrush;
 
     ListView listView;
     ToothbrushDataListViewAdapter toothbrushDataListViewAdapter;
@@ -87,6 +90,15 @@ public class ToothbrushDataActivity extends AppCompatActivity {
     ArrayList<ListItem> dataList;
     ArrayList<ListItem> dataList_date;
 
+    int[] dayResources = {
+            R.string.string_sunday,
+            R.string.string_monday,
+            R.string.string_tuesday,
+            R.string.string_wednesday,
+            R.string.string_thursday,
+            R.string.string_friday,
+            R.string.string_saturday
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +119,8 @@ public class ToothbrushDataActivity extends AppCompatActivity {
         toothbrush_setting_button = (Button) findViewById(R.id.toothbrush_setting_button);
         titlebar_button_back = (Button) findViewById(R.id.titlebar_button_back);
         titlebar_button_home = (Button) findViewById(R.id.titlebar_button_home);
+        titlebar_button_instruction = (Button) findViewById(R.id.titlebar_button_instruction);
+        titlebar_button_teachbrush = (Button) findViewById(R.id.titlebar_button_teachbrush);
         listView = (ListView) findViewById(R.id.toothbrush_data_listView);
         toothbrushDataListViewAdapter = new ToothbrushDataListViewAdapter();
 
@@ -132,12 +146,14 @@ public class ToothbrushDataActivity extends AppCompatActivity {
         toothbrush_setting_button.setOnClickListener(onClickListener);
         titlebar_button_back.setOnClickListener(onClickListener);
         titlebar_button_home.setOnClickListener(onClickListener);
+        titlebar_button_instruction.setOnClickListener(onClickListener);
+        titlebar_button_teachbrush.setOnClickListener(onClickListener);
 
         verifyUserInfo = (VerifyUserInfo) getApplicationContext();
         verifyUserInfo.addActivities(this);
 
         // 아이 사진, 이름 정보가 있을 경우 화면에 출력
-        verifyUserInfo.SetImageViewPhoto(this, toothbrush_childPhoto_imageView, toothbrush_layout);
+        verifyUserInfo.SetImageViewPhoto(this, toothbrush_childPhoto_imageView);
         verifyUserInfo.SetTextViewName(toothbrush_childName_textView);
 
         // 현재 날짜로 캘린터 수정
@@ -178,6 +194,18 @@ public class ToothbrushDataActivity extends AppCompatActivity {
                     break;
                 case R.id.titlebar_button_back:
                     finish();
+                    break;
+                case R.id.titlebar_button_instruction:
+                    // 조작 방법 선택 화면으로 이동
+                    Intent intentToInstruction = new Intent(ToothbrushDataActivity.this, InstructionActivity.class);
+                    intentToInstruction.putExtra(DB_Data.STRING_INSTRUCTION, DB_Data.STRING_INSTRUCTION_MOM);
+                    startActivity(intentToInstruction);
+                    break;
+                case R.id.titlebar_button_teachbrush:
+                    // 올바른 양치질 습관과 관련된 정보를 제공하는 화면으로 이동
+                    Intent intentToToothbrushInstruction = new Intent(ToothbrushDataActivity.this, InstructionActivity.class);
+                    intentToToothbrushInstruction.putExtra(DB_Data.STRING_INSTRUCTION, DB_Data.STRING_INSTRUCTION_TOOTHBRUSH);
+                    startActivity(intentToToothbrushInstruction);
                     break;
             }
         }
@@ -231,18 +259,19 @@ public class ToothbrushDataActivity extends AppCompatActivity {
     public void ShowToothbrushData(int year, int month, int week) {
         if (!DB_Data.IS_TEST_VERSION) {
             toothbrushDataListViewAdapter.clearAll();
+            // 한 주 정보 가져옴
+            GetOneWeek(year, month, day);
             dataList = verifyUserInfo.GetDataFromTable(DB_Data.TABLE_DATA_INFO, verifyUserInfo.getChildID());
 
             if (dataList.size() < 1) {
 //                Toast.makeText(this, getString(R.string.error_fail_to_access_DB), Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < 7; i++)
-                    toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1));
+                    toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1), currOneDate[i]);
                 toothbrushDataListViewAdapter.notifyDataSetChanged();
                 listView.setAdapter(toothbrushDataListViewAdapter);
                 return;
             }
 
-            GetOneWeek(year, month, day);
             GetTimeCondition();
             int currData = 0;
             // 일주일단위로 검색
@@ -275,7 +304,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
                 if (dataList_date.size() < 1) {
 //                Toast.makeText(this, getString(R.string.error_fail_to_access_DB), Toast.LENGTH_SHORT).show();
                     for (int j = 0; j < 7; j++)
-                        toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1));
+                        toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1), currOneDate[j]);
                     toothbrushDataListViewAdapter.notifyDataSetChanged();
                     listView.setAdapter(toothbrushDataListViewAdapter);
                     return;
@@ -328,7 +357,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
 
                 }
 
-                toothbrushDataListViewAdapter.addItem(getDrawable(morningResult), getDrawable(afternoonResult), getDrawable(eveningResult));
+                toothbrushDataListViewAdapter.addItem(getDrawable(morningResult), getDrawable(afternoonResult), getDrawable(eveningResult), currOneDate[i]);
                 currData = 0;
             }
 
@@ -337,7 +366,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
 
         } else {
             for (int i = 0; i < 7; i++)
-                toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1));
+                toothbrushDataListViewAdapter.addItem(getDrawable(R.drawable.data_morning_off1), getDrawable(R.drawable.data_afternoon_off1), getDrawable(R.drawable.data_evening_off1), currOneDate[i]);
             toothbrushDataListViewAdapter.notifyDataSetChanged();
             listView.setAdapter(toothbrushDataListViewAdapter);
         }
@@ -462,6 +491,8 @@ public class ToothbrushDataActivity extends AppCompatActivity {
             else if (currOneWeekDay[i] > 30) {
                 ModifyOneWeek(currOneWeekDay[i], i, CASE_MORE_THAN_LASTDAY);
             }
+
+            currOneDate[i] = String.valueOf(currOneWeekMonth[i] + 1) + "월 " + String.valueOf(currOneWeekDay[i]) + "일 " +  getString(dayResources[i]);
         }
     }
 

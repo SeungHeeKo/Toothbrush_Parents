@@ -35,6 +35,7 @@
                     android:id="@+id/home_child_background_photo_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/home_child_background1"
                     android:layout_gravity="center_horizontal"
                     sl:scale_height="1200"
                     sl:scale_width="1800">
@@ -63,9 +64,9 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/home_child_edit"
+                    android:background="@drawable/home_child_edit1"
                     android:id="@+id/home_child_edit_button"
-                    sl:scale_top="80"
+                    sl:scale_top="950"
                     sl:scale_left="1500"
                     sl:scale_height="136"
                     sl:scale_width="136"/>
@@ -256,13 +257,13 @@
             android:layout_height="match_parent"
             sl:scale_left="150"
             sl:scale_height="350"
-            sl:scale_width="1300">
+            sl:scale_width="1500">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 sl:scale_base_height="350"
-                sl:scale_base_width="1300">
+                sl:scale_base_width="1500">
 
                 <com.tektonspace.toothbrush_parents.adapter.HorizontalListView
                     android:id="@+id/home_child_listview"
@@ -271,7 +272,7 @@
                     android:layout_gravity="center_vertical"
                     android:background="@android:color/transparent"
                     sl:scale_height="350"
-                    sl:scale_width="1300"
+                    sl:scale_width="1500"
                     />
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </RelativeLayout>
@@ -336,7 +337,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    sl:srcCompat="@drawable/home_toothbrushdata"
+                    sl:srcCompat="@drawable/home_toothbrushdata1"
                     android:id="@+id/home_icon_toothbrush_imageView"
                     sl:scale_top="150"
                     sl:scale_left="350"
@@ -346,7 +347,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    sl:srcCompat="@drawable/home_rewardsystem"
+                    sl:srcCompat="@drawable/home_rewardsystem1"
                     android:id="@+id/home_icon_reward_imageView"
                     sl:scale_top="150"
                     sl:scale_left="1150"
