@@ -117,6 +117,8 @@ public class ChildEditActivity extends AppCompatActivity {
         childEdit_childPhoto_imageView.setOnClickListener(onClickListener);
         titlebar_button_back.setOnClickListener(onClickListener);
         titlebar_button_home.setOnClickListener(onClickListener);
+        titlebar_button_instruction.setOnClickListener(onClickListener);
+        titlebar_button_teachbrush.setOnClickListener(onClickListener);
         childedit_background_photo_button.setOnClickListener(onClickListener);
 
         verifyUserInfo = (VerifyUserInfo) getApplicationContext();
@@ -170,6 +172,10 @@ public class ChildEditActivity extends AppCompatActivity {
         intentToDetail.putExtra(DB_Data.STRING_CHILD_ID, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_ID));
         intentToDetail.putExtra(DB_Data.STRING_CHILD_PHOTO, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_PHOTO));
         intentToDetail.putExtra(DB_Data.STRING_CHILD_BACKGROUNDPHOTO, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_BACKGROUNDPHOTO));
+        intentToDetail.putExtra(DB_Data.STRING_CHILD_NICKNAME, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_NICKNAME));
+        intentToDetail.putExtra(DB_Data.STRING_CHILD_CONNECTMODE, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_CONNECTMODE));
+        intentToDetail.putExtra(DB_Data.STRING_CHILD_BLUETOOTHID, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_BLUETOOTHID));
+        intentToDetail.putExtra(DB_Data.STRING_CHILD_CHARACTER, verifyUserInfo.getChildData().getData(DB_Data.INDEX_CHILD_CHARACTER));
         HomeActivity homeActivity = (HomeActivity) HomeActivity.homeActivity;
         homeActivity.finish();
         startActivity(intentToDetail);
@@ -214,6 +220,16 @@ public class ChildEditActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.titlebar_button_instruction:
+                    // 조작 방법 선택 화면으로 이동
+                    Intent intentToInstruction = new Intent(ChildEditActivity.this, InstructionActivity.class);
+                    intentToInstruction.putExtra(DB_Data.STRING_INSTRUCTION, DB_Data.STRING_INSTRUCTION_MOM);
+                    startActivity(intentToInstruction);
+                    break;
+                case R.id.titlebar_button_teachbrush:
+                    // 올바른 양치질 습관과 관련된 정보를 제공하는 화면으로 이동
+                    Intent intentToToothbrushInstruction = new Intent(ChildEditActivity.this, InstructionActivity.class);
+                    intentToToothbrushInstruction.putExtra(DB_Data.STRING_INSTRUCTION, DB_Data.STRING_INSTRUCTION_TOOTHBRUSH);
+                    startActivity(intentToToothbrushInstruction);
                     break;
             }
         }

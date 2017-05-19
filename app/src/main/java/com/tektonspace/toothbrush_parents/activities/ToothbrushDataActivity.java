@@ -76,7 +76,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
 
     boolean morningDone = false, afternoonDone = false, eveningDone = false;
     RelativeLayout toothbrush_layout;
-    ImageView toothbrush_childPhoto_imageView;
+    ImageView toothbrush_childPhoto_imageView, data_background_photo_imageView;
     TextView toothbrush_childName_textView;
     Button toothbrush_setting_button, toothbrush_calendar_left_button, toothbrush_calendar_button, toothbrush_calendar_right_button, titlebar_button_back, titlebar_button_home;
     // 타이틀바 버튼
@@ -113,6 +113,7 @@ public class ToothbrushDataActivity extends AppCompatActivity {
         toothbrushDataActivity = this;
         toothbrush_layout = (RelativeLayout) findViewById(R.id.toothbrush_layout);
         toothbrush_childPhoto_imageView = (ImageView) findViewById(R.id.toothbrush_childPhoto_imageView);
+        data_background_photo_imageView = (ImageView) findViewById(R.id.data_background_photo_imageView);
         toothbrush_childName_textView = (TextView) findViewById(R.id.toothbrush_childName_textView);
         toothbrush_calendar_left_button = (Button) findViewById(R.id.toothbrush_calendar_left_button);
         toothbrush_calendar_button = (Button) findViewById(R.id.toothbrush_calendar_button);
@@ -156,15 +157,13 @@ public class ToothbrushDataActivity extends AppCompatActivity {
         // 아이 사진, 이름 정보가 있을 경우 화면에 출력
         verifyUserInfo.SetImageViewPhoto(this, toothbrush_childPhoto_imageView);
         verifyUserInfo.SetTextViewName(toothbrush_childName_textView);
+        verifyUserInfo.SetImageViewBackgroundPhoto(this, data_background_photo_imageView);
 
         // 현재 날짜로 캘린터 수정
         SetMonthWeek(year, month, week);
 
         // 양치 데이터 저장할 ArrayList
         dataList = new ArrayList<ListItem>();
-
-//        currOneWeekDay = new int[7];
-//        timeCondition = new int[12];
         morningResult = R.drawable.data_morning_off1;
         afternoonResult = R.drawable.data_afternoon_off1;
         eveningResult = R.drawable.data_evening_off1;

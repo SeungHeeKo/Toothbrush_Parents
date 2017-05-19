@@ -156,6 +156,7 @@ public class ChildSelectFragment extends Fragment {
 //                    verifyUserInfo.setChildData(childInfo.get(0));
                     childID = childInfo.get(0).getData(DB_Data.INDEX_CHILD_ID);
                     verifyUserInfo.setChildID(childInfo.get(0).getData(DB_Data.INDEX_CHILD_ID));
+                    verifyUserInfo.setChildData(childInfo.get(0));
                     SetChildInfo(childInfo.get(0));
 
 //                intentToDetail.putExtra(DB_Data.STRING_USER_ID, verifyUserInfo.getUserData().get(position).getData(DB_Data.INDEX_USER_ID));
@@ -180,8 +181,12 @@ public class ChildSelectFragment extends Fragment {
             childData[i] = "";
         }
         childData[DB_Data.INDEX_CHILD_ID] = getArguments().getString(DB_Data.STRING_CHILD_ID);
-        childData[DB_Data.INDEX_CHILD_PHOTO] = getArguments().getString(DB_Data.STRING_CHILD_PHOTO);
         childData[DB_Data.INDEX_CHILD_NAME] = getArguments().getString(DB_Data.STRING_CHILD_NAME);
+        childData[DB_Data.INDEX_CHILD_BLUETOOTHID] = getArguments().getString(DB_Data.STRING_CHILD_BLUETOOTHID);
+        childData[DB_Data.INDEX_CHILD_NICKNAME] = getArguments().getString(DB_Data.STRING_CHILD_NICKNAME);
+        childData[DB_Data.INDEX_CHILD_CHARACTER] = getArguments().getString(DB_Data.STRING_CHILD_CHARACTER);
+        childData[DB_Data.INDEX_CHILD_PHOTO] = getArguments().getString(DB_Data.STRING_CHILD_PHOTO);
+        childData[DB_Data.INDEX_CHILD_CONNECTMODE] = getArguments().getString(DB_Data.STRING_CHILD_CONNECTMODE);
         childData[DB_Data.INDEX_CHILD_BACKGROUNDPHOTO] = getArguments().getString(DB_Data.STRING_CHILD_BACKGROUNDPHOTO);
 
         currChildInfo.setData(childData);

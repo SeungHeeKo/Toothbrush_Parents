@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public interface DB_Data {
     // ToothbrushData DB 접속 IP
-    public final String publicIP = "http://52.79.107.26/";
+    public final String publicIP = "http://52.78.108.174/";
 
     // 각 테이블별 접근 int변수
     public static final int TABLE_USER_INFO = 10;
@@ -126,9 +126,13 @@ public interface DB_Data {
     public final String STRING_USER_MAILADDRESS = "USER_MAILADDRESS";
     public final String STRING_USER_PASSWORD  = "USER_PASSWORD";
     public final String STRING_CHILD_NAME = "STRING_CHILD_NAME";
+    public final String STRING_CHILD_NICKNAME = "STRING_CHILD_NICKNAME";
+    public final String STRING_CHILD_CHARACTER = "STRING_CHILD_CHARACTER";
+    public final String STRING_CHILD_CONNECTMODE = "STRING_CHILD_CONNECTMODE";
     public final String STRING_CHILD_ID = "STRING_CHILD_ID";
     public final String STRING_CHILD_PHOTO = "STRING_CHILD_PHOTO";
     public final String STRING_CHILD_BACKGROUNDPHOTO = "STRING_CHILD_BACKGROUNDPHOTO";
+    public final String STRING_CHILD_BLUETOOTHID = "STRING_CHILD_BLUETOOTHID";
     public final String INT_TOTAL_CHILD_NUM = "TOTAL_CHILD_NUM";
     public final String STRING_INSTRUCTION = "STRING_INSTRUCTION";
     public final String STRING_INSTRUCTION_MOM = "STRING_INSTRUCTION_MOM";

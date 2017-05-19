@@ -54,7 +54,6 @@ public class ListItem {
     public void setData(String[] data){
         mData = data;
     }
-
     public void changeData(int index, String data){ mData[index] = data;}
 
     public int length(){

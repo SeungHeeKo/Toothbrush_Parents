@@ -68,7 +68,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_instruction1"
+                    android:background="@drawable/titlebar_instruction2"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_instruction"
                     android:alpha=".7"
@@ -78,7 +78,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/titlebar_teachbrush1"
+                    android:background="@drawable/titlebar_teachbrush2"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/titlebar_button_teachbrush"
                     android:alpha=".7"

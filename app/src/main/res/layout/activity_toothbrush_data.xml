@@ -35,6 +35,34 @@
         sl:scale_base_height="750"
         sl:scale_base_width="1800">
 
+        <!--background photo-->
+        <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/data_background_photo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/childedit_background"
+            sl:scale_height="1212"
+            sl:scale_width="1800">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                sl:scale_base_height="1212"
+                sl:scale_base_width="1800">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    sl:srcCompat="@drawable/childedit_background"
+                    android:id="@+id/data_background_photo_imageView"
+                    sl:scale_height="1212"
+                    sl:scale_width="1800" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </RelativeLayout>
+
         <!--child photo-->
     <RelativeLayout xmlns:sl="http://schemas.android.com/apk/res-auto"
             android:id="@+id/toothbrush_layout"
